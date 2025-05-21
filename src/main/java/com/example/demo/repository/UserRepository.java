@@ -13,13 +13,13 @@ import com.example.demo.model.entity.User;
 @Repository
 public interface UserRepository  extends JpaRepository<User,Long>{
 	 // 自訂方法：根據 username 查找用戶（用於檢查是否重複）
-    Optional<User> findByUsername(String username);
+    Optional<User> findByUserName(String username);
 
     // 自訂方法：根據 email 查找用戶（用於檢查是否重複）
     Optional<User> findByEmail(String email);
 		// email 驗證成功並修改 emailConfirmOK = true
     @Transactional
     @Modifying
-    @Query("UPDATE User u SET u.emailConfirmOK = true WHERE u.username = :username")
+    @Query("UPDATE User u SET u.emailConfirmOK = true WHERE u.userName = :username")
 	int emailConfirmOK(String username);
 }

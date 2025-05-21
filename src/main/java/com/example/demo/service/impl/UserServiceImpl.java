@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 			salt = HashUtil.generateSalt();
 			String passwordHash = HashUtil.hashPassword(password, salt);
 			User.Role roleEnum=User.Role.valueOf(role.toUpperCase());
-			User user = new User();//userName,passwordHash,salt,userEmail,emailConfirmOK,roleEnum
+			User user = new User();
 			user.setUserName(userName);
 			user.setHashPassword(passwordHash);
 			user.setSalt(salt);

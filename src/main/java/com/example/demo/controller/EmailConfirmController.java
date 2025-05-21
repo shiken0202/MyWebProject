@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmailConfirmController {
 	@GetMapping(value = "/email/confirm")
 	public String username() {
+		return null;
 		
 	}
 	
