@@ -37,8 +37,11 @@ public class User {
 
     @Column(nullable = false, length = 255)
     private String hashPassword;
+    
+    @Column(nullable = false)
+    private String Salt;
 
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(nullable = false, length = 100) //unique = true//)
     private String email;
     
     @Column(nullable = false)
@@ -48,10 +51,10 @@ public class User {
     @Column(nullable = false, length = 20)
     private Role role;
 
-    @Column(name = "createdat", nullable = false)
+    @Column(name = "createdat" )
     private LocalDateTime createdAt;
 
-    @Column(name = "isbanned", nullable = false)
+    @Column(name = "isbanned")
     private Boolean isBanned;
 
     // 一對一：一個 user 只能有一個 store

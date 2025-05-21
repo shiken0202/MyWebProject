@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.exception.UserAlreadyExistsException;
 import com.example.demo.mapper.UserMapper;
@@ -14,6 +15,7 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import com.example.demo.util.HashUtil;
 
+@Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -32,62 +34,52 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<UserDto> findAllUsers() {
+		// TODO 自動產生的方法 Stub
 		return null;
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public UserDto getUserById() {
-		// TODO Auto-generated method stub
+		// TODO 自動產生的方法 Stub
 		return null;
 	}
-	
+
 	@Override
-	public void addUser(String userName, String userEmail,String password ,String role) {
-		UserDto userDto=new UserDto();
-		userDto.setUserName(userName);
-		userDto.setEmail(userEmail);
+	public void addUser(String userName, String userEmail, String password,boolean emailConfirmOK, String role) {
+		
 		try {
-			String hashSalt = HashUtil.generateSalt(); // 取得鹽
-			String hashPassword = HashUtil.hashPassword(password, hashSalt); // 取 hash 密碼
-			userDto.setPassword(hashPassword);
-			userDto.setRole(role);
-			addUser(userDto);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}	
-	}
-	
-	@Override
-	public void addUser(UserDto userDto) {
-			Optional<User>optUser=userRepository.findByUsername(userDto.getUserName());
-			if(optUser.isPresent()) {
-				throw new UserAlreadyExistsException("新增失敗: 使用者名稱 " + userDto.getUserName() + " 已經存在"); 
-			}
-			User user=userMapper.toEntity(userDto);
-			// 新增 user
+			String salt;
+			salt = HashUtil.generateSalt();
+			String passwordHash = HashUtil.hashPassword(password, salt);
+			User.Role roleEnum=User.Role.valueOf(role.toUpperCase());
+			User user = new User();//userName,passwordHash,salt,userEmail,emailConfirmOK,roleEnum
+			user.setUserName(userName);
+			user.setHashPassword(passwordHash);
+			user.setSalt(salt);
+			user.setEmail(userEmail);
+			user.setEmailConfirmOK(emailConfirmOK);
+			user.setRole(roleEnum);
 			userRepository.save(user);
-			userRepository.flush();
+		} catch (Exception e) {
+			// TODO 自動產生的 catch 區塊
+			e.printStackTrace();
+		}
 		
-	}
-	@Override
-	public void updateUser(Long userId, UserDto userDto) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateUser(Long userId,String userName,String userEmail,String password,Role role) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteUser(Long userId, UserDto userDto) {
-		// TODO Auto-generated method stub
+	public void updateUser(Long userId, String userName, String userEmail, String password, String role) {
+		// TODO 自動產生的方法 Stub
 		
 	}
-	
+
+	@Override
+	public void deleteUser(Long userId) {
+		// TODO 自動產生的方法 Stub
+		
+	}
+
+
 
 }

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class UserDto {
     private Long id;
     private String userName;
-    private String Password;
+//    private String Password; //*要拔掉
     private String email;
     private String role; // 用 String 表示角色（如 "ADMIN"、"SELLER"、"BUYER"）
     private LocalDateTime createdAt;

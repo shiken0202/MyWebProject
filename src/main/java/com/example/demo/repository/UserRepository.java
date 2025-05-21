@@ -17,7 +17,7 @@ public interface UserRepository  extends JpaRepository<User,Long>{
 
     // 自訂方法：根據 email 查找用戶（用於檢查是否重複）
     Optional<User> findByEmail(String email);
-		// email 驗證成功並修改 completed = true
+		// email 驗證成功並修改 emailConfirmOK = true
     @Transactional
     @Modifying
     @Query("UPDATE User u SET u.emailConfirmOK = true WHERE u.username = :username")
