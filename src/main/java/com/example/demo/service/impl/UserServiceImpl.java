@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.exception.UserAlreadyExistsException;
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.dto.UserDto;
 import com.example.demo.model.entity.User;
@@ -39,13 +40,23 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDto getUserById() {
+	public UserDto getUserById(Long userId) {
 		// TODO 自動產生的方法 Stub
 		return null;
 	}
+	@Override
+	public UserDto getUserByUserName(String userName) {
+		Optional<User>optUser=userRepository.findByUserName(userName);
+		if(optUser.isEmpty()) {
+			throw new UserNotFoundException("找不到使用者: "+userName);
+		}
+		User user=optUser.get();
+		UserDto userDto=userMapper.toDto(user);
+		return userDto;
+	}
 
 	@Override
-	public void addUser(String userName, String userEmail, String password,boolean emailConfirmOK, String role) {
+	public void addUser(String userName, String userEmail, String password, String role) {
 		
 		try {
 			String salt;
@@ -57,7 +68,6 @@ public class UserServiceImpl implements UserService {
 			user.setHashPassword(passwordHash);
 			user.setSalt(salt);
 			user.setEmail(userEmail);
-			user.setEmailConfirmOK(emailConfirmOK);
 			user.setRole(roleEnum);
 			userRepository.save(user);
 		} catch (Exception e) {
@@ -70,14 +80,41 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updateUser(Long userId, String userName, String userEmail, String password, String role) {
-		// TODO 自動產生的方法 Stub
+		Optional<User> optUser=userRepository.findById(userId);
+		if(optUser.isEmpty()) {
+			throw new UserNotFoundException("無此使用者，無法修改");
+		}
+		try {
+			String salt;
+			salt = HashUtil.generateSalt();
+			String passwordHash = HashUtil.hashPassword(password, salt);
+		User user=optUser.get();
+		user.setUserName(userName);
+		user.setEmail(userEmail);
+		user.setHashPassword(passwordHash);
+		User.Role roleEnum=User.Role.valueOf(role.toUpperCase());
+		user.setRole(roleEnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void deleteUser(Long userId) {
-		// TODO 自動產生的方法 Stub
+		Optional<User> optUser=userRepository.findById(userId);
+		if(optUser.isEmpty()) {
+			throw new UserNotFoundException("無此使用者，刪除失敗");
+		}
+		User user=optUser.get();
+		userRepository.delete(user);
 		
+	}
+
+	@Override
+	public boolean existsByUserName(String userName) {
+		
+		return userRepository.existsByUserName(userName);
 	}
 
 

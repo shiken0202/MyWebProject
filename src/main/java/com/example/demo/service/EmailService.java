@@ -1,6 +1,9 @@
 package com.example.demo.service;
 
 import java.util.Properties;
+
+import org.springframework.stereotype.Service;
+
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
 import jakarta.mail.PasswordAuthentication;
@@ -9,11 +12,12 @@ import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
+@Service
 public class EmailService {
 	
-	public static void main(String[] args) {
-		new EmailService().sendEmail("a0970439092@gmail.com", "http://localhost:8080/MyWebProject/");
-	}
+//	public static void main(String[] args) {
+//		new EmailService().sendEmail("a0970439092@gmail.com", "http://localhost:8080/MyWebProject/");
+//	}
 	
 	// Google應用程式密碼
 	// 請參考此篇 https://www.yongxin-design.com/Article/10

@@ -3,9 +3,13 @@ package com.example.demo.model.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +26,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
+@EntityListeners(AuditingEntityListener.class)
 public class User {
 
     public enum Role {
@@ -45,17 +50,18 @@ public class User {
     private String email;
     
     @Column(nullable = false)
-    private boolean emailConfirmOK=false;
+    private Boolean emailConfirmOK=false;
     
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private Role role;
-
+    
+    @CreatedDate
     @Column(name = "createdat" )
     private LocalDateTime createdAt;
 
-    @Column(name = "isbanned")
-    private Boolean isBanned;
+    @Column(name = "isbanned" ,nullable = false)
+    private Boolean isBanned=false;
 
     // 一對一：一個 user 只能有一個 store
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)

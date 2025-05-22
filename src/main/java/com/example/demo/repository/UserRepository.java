@@ -14,7 +14,10 @@ import com.example.demo.model.entity.User;
 public interface UserRepository  extends JpaRepository<User,Long>{
 	 // 自訂方法：根據 username 查找用戶（用於檢查是否重複）
     Optional<User> findByUserName(String username);
-
+    
+    
+    boolean existsByUserName(String userName);
+    
     // 自訂方法：根據 email 查找用戶（用於檢查是否重複）
     Optional<User> findByEmail(String email);
 		// email 驗證成功並修改 emailConfirmOK = true

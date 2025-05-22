@@ -14,6 +14,6 @@ public class UserAddTest {
 	
 	@Test
 	public void UserTest() {
-	userService.addUser("john","hsuan0202.tw@gmail.com", "1234", true, "admin");
+	userService.addUser("admin","hsuan0202.tw@gmail.com", "1234", "admin");
 	}
 }
