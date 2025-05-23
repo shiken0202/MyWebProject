@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.demo.model.entity.User.Role;
 
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserDto {
     private Long id;
+    @Pattern(regexp = "^[a-zA-Z0-9-_]{5,20}$",message = "用戶名稱需介於5-20個字母")
     private String userName;
-//    private String Password; //*要拔掉
     private String email;
     private String role; // 用 String 表示角色（如 "ADMIN"、"SELLER"、"BUYER"）
     private LocalDateTime createdAt;

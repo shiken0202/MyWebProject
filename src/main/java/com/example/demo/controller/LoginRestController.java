@@ -32,11 +32,15 @@ public class LoginRestController {
 	EmailService emailService;
 	
 	@PostMapping("/login")
-	public ResponseEntity<ApiResponse<Void>>Login(@RequestParam String username,@RequestParam String password,HttpSession session){
+	public ResponseEntity<ApiResponse<Void>>Login(@RequestParam String username,@RequestParam String password,@RequestParam String captchaInput,HttpSession session){
 		try {
 			UserCert userCert=userCertService.getCert(username, password);
-			System.out.println(userCert+"123");
 			session.setAttribute("userCert", userCert);
+			String authcode=(String)session.getAttribute("authcode");
+			if(!captchaInput.equals(authcode)) {
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+						.body(ApiResponse.error(400,"驗證碼輸入失敗"));
+			}
 			return ResponseEntity.ok(ApiResponse.success("登入成功", null));
 		} catch (UserException e) {
 			return ResponseEntity
@@ -61,6 +65,16 @@ public class LoginRestController {
 	    boolean loggedIn = session.getAttribute("userCert") != null;
 	    return ResponseEntity.ok(ApiResponse.success("檢查登入", loggedIn));
 	}
+	
+	@GetMapping("/userinfo")
+	public ResponseEntity<ApiResponse<UserCert>>userInfo(HttpSession session){
+		UserCert userCert=(UserCert)session.getAttribute("userCert");
+		if(userCert==null) {
+			return null;
+		}
+		return ResponseEntity.ok(ApiResponse.success("使用者資訊為: ", userCert));
+	}
+	
 	@PostMapping("/register")
 	public ResponseEntity<ApiResponse<Void>> Register(@RequestParam String username,@RequestParam String password,@RequestParam String email,@RequestParam String role){
 		if(userService.existsByUserName(username)==true) {
@@ -75,5 +89,5 @@ public class LoginRestController {
 		
 	}
 	
-
+	
 }

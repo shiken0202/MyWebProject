@@ -29,11 +29,13 @@ public class AuthCodeController {
 		ImageIO.write(AuthCodeImage,"JPG",baos);
 		byte[]bytes=baos.toByteArray();
 		req.setAttribute("authcode", authcode);
+		System.out.println(authcode);
 		return bytes;
 	}
 	
 	private String generateAuthCode() {
-		String chars = "123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
+//		String chars = "123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
+		String chars ="0";
 		StringBuffer authcode = new StringBuffer();
 		Random random = new Random();
 		for(int i=0;i<4;i++) {
