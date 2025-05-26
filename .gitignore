@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+logs/
+# 或者，如果只想忽略特定檔案
+# logs/app.log
