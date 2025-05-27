@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import com.example.demo.response.ApiResponse;
 import com.example.demo.service.EmailService;
 import com.example.demo.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @RestController
 @RequestMapping("/MyWebProject")
 @CrossOrigin(origins = {"http://localhost:5173"},allowCredentials = "true")
@@ -23,9 +26,13 @@ public class EmailConfirmController {
 	@Autowired
 	UserService userService;
 	@GetMapping(value = "/email/confirm")
-	public ResponseEntity<ApiResponse<Void>>confirm(@RequestParam String username){
-		
-	userService.emailConfirmOK(username);		
+	public ResponseEntity<ApiResponse<Void>>confirm(@RequestParam String username,HttpSession session){
+	
+	userService.emailConfirmOK(username);
+	if(session.getAttribute("userCert")==null) {
+		return null;
+	}
+	session.invalidate();
 	System.out.print(username);
 	return ResponseEntity.ok(ApiResponse.success("驗證成功", null));
 			

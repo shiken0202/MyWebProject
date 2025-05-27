@@ -1,17 +1,17 @@
 package com.example.demo.service.impl;
 
+
+
 import java.util.List;
 import java.util.Optional;
-
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.exception.UserAlreadyExistsException;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.dto.UserDto;
+import com.example.demo.model.dto.UserListDto;
 import com.example.demo.model.entity.User;
-import com.example.demo.model.entity.User.Role;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import com.example.demo.util.HashUtil;
@@ -34,9 +34,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserDto> findAllUsers() {
-		// TODO 自動產生的方法 Stub
-		return null;
+	public List<UserListDto> findAllUsers() {
+	
+		return userRepository.findAllUsersInfo();
+//		return users.stream()
+//					.map(u->userMapper.toDto(u)).collect(Collectors.toList());
 	}
 
 	@Override

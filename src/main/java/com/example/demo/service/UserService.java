@@ -3,13 +3,14 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.model.dto.UserDto;
+import com.example.demo.model.dto.UserListDto;
 import com.example.demo.model.entity.User;
 import com.example.demo.model.entity.User.Role;
 
 public interface UserService {
 
 	public	void emailConfirmOK(String userName);
-	public 	List<UserDto> findAllUsers();
+	public 	List<UserListDto> findAllUsers();
 	public	UserDto getUserById(Long userId);
 	public  UserDto getUserByUserName(String userName);
 	public 	boolean existsByUserName(String userName);
