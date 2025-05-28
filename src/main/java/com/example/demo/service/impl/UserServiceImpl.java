@@ -16,6 +16,8 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import com.example.demo.util.HashUtil;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -58,6 +60,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public void addUser(String userName, String userEmail, String password, String role) {
 		
 		try {
@@ -81,6 +84,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public void updateUser(Long userId, String userName, String userEmail, String password, String role) {
 		Optional<User> optUser=userRepository.findById(userId);
 		if(optUser.isEmpty()) {

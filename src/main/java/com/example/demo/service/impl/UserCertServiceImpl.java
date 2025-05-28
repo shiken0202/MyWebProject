@@ -20,7 +20,7 @@ public class UserCertServiceImpl implements UserCertService{
 	@Autowired
 	UserRepository userRepository;
 	@Override
-	@Transactional
+	
 	public UserCert getCert(String username, String password)  {
 		Optional<User>optUser= userRepository.findByUserName(username);
 		if(optUser.isEmpty()) {

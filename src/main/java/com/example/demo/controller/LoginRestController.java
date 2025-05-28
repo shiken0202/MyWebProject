@@ -37,6 +37,8 @@ public class LoginRestController {
 			UserCert userCert=userCertService.getCert(username, password);
 			session.setAttribute("userCert", userCert);
 			String authcode=(String)session.getAttribute("authcode");
+			System.out.println(captchaInput);
+			System.out.println(authcode);
 			if(!captchaInput.equals(authcode)) {
 				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
 						.body(ApiResponse.error(400,"驗證碼輸入失敗"));

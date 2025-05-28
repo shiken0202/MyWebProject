@@ -29,7 +29,7 @@ public class AuthCodeController {
 		ImageIO.write(AuthCodeImage,"JPG",baos);
 		byte[]bytes=baos.toByteArray();
 		req.setAttribute("authcode", authcode);
-		System.out.println(authcode);
+		System.out.println("認證碼是: "+authcode);
 		return bytes;
 	}
 	
