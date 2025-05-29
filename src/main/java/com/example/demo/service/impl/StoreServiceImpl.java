@@ -50,6 +50,13 @@ public class StoreServiceImpl implements StoreService {
 		return storeMapper.toDto(store);
 	}
 
+	@Override
+	public Boolean updateStoreDescription(String description, Long id) {
+		int rows= storeRepository.updateStoreDescription(description, id);
+		return rows>0;
+		
+	}
+
 	
 
 }
