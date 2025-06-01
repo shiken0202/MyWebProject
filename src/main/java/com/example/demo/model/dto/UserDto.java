@@ -3,7 +3,6 @@ package com.example.demo.model.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.example.demo.model.entity.User.Role;
 
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;

@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.example.demo.model.dto.UserDto;
 import com.example.demo.model.dto.UserListDto;
-import com.example.demo.model.entity.User;
-import com.example.demo.model.entity.User.Role;
 
 public interface UserService {
 

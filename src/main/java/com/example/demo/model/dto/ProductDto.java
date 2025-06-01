@@ -14,11 +14,13 @@ import lombok.NoArgsConstructor;
 public class ProductDto {
     private Long id;
     private Long storeId;         // 對應 Store 的 id
-    private Long categoryId;      // 對應 Category 的 id
+    private Integer categoryId;      // 對應 Category 的 id
+    private String categoryName;
     private String title;
     private String brand;
-    private String stock;
+    private Integer stock;
     private BigDecimal price;
+    private String description;
     private Integer viewCount;
     private Boolean isActive;
     private LocalDateTime createdAt;

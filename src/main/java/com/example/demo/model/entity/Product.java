@@ -3,6 +3,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.CascadeType;
@@ -47,7 +48,7 @@ public class Product {
     private String brand;
 
     @Column(length = 255)
-    private String stock;
+    private Integer stock;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
@@ -59,7 +60,7 @@ public class Product {
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive=false;
-
+    @CreatedDate
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
     

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.exception.StoreNotFoundException;
 import com.example.demo.exception.UserNotFoundException;
@@ -25,6 +26,7 @@ public class StoreServiceImpl implements StoreService {
 	private UserRepository userRepository;
 	@Autowired
 	StoreMapper storeMapper;
+	
 	
 	@Override
 	public void addStore(String StoreName, String description, Long userId) {
