@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.exception.CategoryNotFoundException;
+import com.example.demo.exception.ProductImageNotFoundException;
 import com.example.demo.exception.ProductNotFoundException;
 import com.example.demo.exception.StoreNotFoundException;
 import com.example.demo.mapper.ProductMapper;
@@ -23,6 +24,7 @@ import com.example.demo.repository.ProductRepository;
 import com.example.demo.repository.StoreRepository;
 import com.example.demo.service.ProductService;
 @Service
+@Transactional
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
@@ -44,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	@Override
 	public List<ProductDto> findProductsByStoreId(Long StoreId) {
-		List<Product>products= productRepository.findByStoreId(StoreId);
+		List<Product>products= productRepository.findByStoreIdWithImages(StoreId);
 		if(products==null) {
 			return null;
 		}
@@ -110,13 +112,31 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void isActiveProduct(Long id) {
-		// TODO Auto-generated method stub
-		
+		Optional<Product> productOpt=productRepository.findById(id);
+		if(productOpt.isEmpty()) {
+			throw new ProductNotFoundException("查無商品");
+		}
+		Product product=productOpt.get();
+		if(product.getProductImages()==null||product.getProductImages().isEmpty()) {
+			throw new ProductImageNotFoundException("尚無照片請先上傳照片再上架商品");
+		}else {
+			productRepository.isActive(id);
+		}
 	}
 
 	@Override
 	public void isNotActiveProduct(Long id) {
-		// TODO Auto-generated method stub
+		Optional<Product> productOpt=productRepository.findById(id);
+		if(productOpt.isEmpty()) {
+			throw new ProductNotFoundException("查無商品");
+		}
+		Product product=productOpt.get();
+		if(product.getProductImages()==null||product.getProductImages().isEmpty()) {
+			throw new ProductImageNotFoundException("尚無照片請先上傳照片再上架商品");
+		}else {
+			productRepository.isNotActive(id);
+		}
+		
 		
 	}
 	

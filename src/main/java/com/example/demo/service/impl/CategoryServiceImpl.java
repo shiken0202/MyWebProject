@@ -38,4 +38,11 @@ public class CategoryServiceImpl implements CategoryService {
 		return SubCategories.stream().map(subc->categoryMapper.toDto(subc.get())).collect(Collectors.toList());
 	}
 
+	@Override
+	public List<CategoryDto> findAllCategories() {
+		List<Category> categories=categoryRepository.findAll();
+		
+		return categories.stream().map(c->categoryMapper.toDto(c)).collect(Collectors.toList());
+	}
+
 }

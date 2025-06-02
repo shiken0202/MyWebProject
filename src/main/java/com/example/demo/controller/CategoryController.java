@@ -33,4 +33,12 @@ public class CategoryController {
 		}
 		return ResponseEntity.ok(ApiResponse.success("主分類: ", SubCategoryDto));
 	}
+	@GetMapping("/categories")
+	public ResponseEntity<ApiResponse<List<CategoryDto>>> getCategories(){
+		List<CategoryDto>CategoriesDto=categoryService.findAllCategories();
+		if(CategoriesDto==null) {
+			return ResponseEntity.badRequest().body(ApiResponse.success("查詢失敗，尚無主分類，主分類ID為:1，5，9", null));
+		}
+		return ResponseEntity.ok(ApiResponse.success("主分類: ", CategoriesDto));
+	}
 }

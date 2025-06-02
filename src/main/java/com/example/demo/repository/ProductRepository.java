@@ -5,12 +5,17 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
-	List<Product>findByStoreId(Long storeId);
+	@Query("SELECT DISTINCT p FROM Product p " +
+	           "LEFT JOIN FETCH p.productImages " + // 強制載入圖片
+	           "LEFT JOIN FETCH p.category " +      // 強制載入分類
+	           "WHERE p.store.id = :storeId")
+    List<Product> findByStoreIdWithImages(@Param("storeId") Long storeId);
 	
 	@Transactional
 	@Modifying

@@ -26,6 +26,7 @@ public class ProductDto {
     private LocalDateTime createdAt;
 
     // 關聯圖片、訂單明細、購物車項目只放 id 清單，避免 DTO 過大與遞迴
+    private List<ProductImageDto> images;
     private List<Long> productImageIds;
     private List<Long> orderItemIds;
     private List<Long> cartItemIds;

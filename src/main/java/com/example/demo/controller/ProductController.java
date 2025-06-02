@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.exception.CategoryNotFoundException;
+import com.example.demo.exception.ProductImageNotFoundException;
 import com.example.demo.exception.StoreNotFoundException;
 import com.example.demo.model.dto.ProductDto;
 import com.example.demo.model.dto.StoreDto;
@@ -89,5 +90,25 @@ public class ProductController {
 			return ResponseEntity.badRequest().body(ApiResponse.error(400, "尚無商品請加入商品"));
 		}
 		return ResponseEntity.ok(ApiResponse.success("查詢商品成功:", productDtos));
+	}
+	@PutMapping("/product/active/{id}")
+	public ResponseEntity<ApiResponse<Void>>activeProduct(@PathVariable Long id){
+		try {
+			productService.isActiveProduct(id);
+			return ResponseEntity.ok(ApiResponse.success("上架成功", null));
+		} catch (ProductImageNotFoundException e) {
+			return ResponseEntity.ok(ApiResponse.success("上架失敗，請先上傳照片再上架", null));
+		}
+		
+	}
+	@PutMapping("/product/notactive/{id}")
+	public ResponseEntity<ApiResponse<Void>>isNotActiveProduct(@PathVariable Long id){
+		try {
+			productService.isNotActiveProduct(id);
+			return ResponseEntity.ok(ApiResponse.success("下架成功", null));
+		} catch (ProductImageNotFoundException e) {
+			return ResponseEntity.ok(ApiResponse.success("下架失敗，請先上傳照片再下架", null));
+		}
+		
 	}
 }
