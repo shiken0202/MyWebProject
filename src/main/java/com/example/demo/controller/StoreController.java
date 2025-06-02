@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -50,5 +52,10 @@ public class StoreController {
 		}
 		return ResponseEntity.ok(ApiResponse.success("修改成功", null));
 		
+	}
+	@GetMapping("/store/all")
+	public ResponseEntity<ApiResponse<List<StoreDto>>> findAllStore(){
+		List<StoreDto>stores=storeService.findAllStores();
+		return ResponseEntity.ok(ApiResponse.success("商店列表", stores));
 	}
 }

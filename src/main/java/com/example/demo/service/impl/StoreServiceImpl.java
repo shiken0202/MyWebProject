@@ -1,7 +1,8 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
 import java.util.Optional;
-
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,6 +58,11 @@ public class StoreServiceImpl implements StoreService {
 		int rows= storeRepository.updateStoreDescription(description, id);
 		return rows>0;
 		
+	}
+
+	@Override
+	public List<StoreDto> findAllStores() {
+		return storeRepository.findAll().stream().map(s->storeMapper.toDto(s)).collect(Collectors.toList());
 	}
 
 	
