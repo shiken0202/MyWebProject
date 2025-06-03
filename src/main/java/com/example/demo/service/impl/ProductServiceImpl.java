@@ -23,6 +23,9 @@ import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.repository.StoreRepository;
 import com.example.demo.service.ProductService;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 @Service
 @Transactional
 public class ProductServiceImpl implements ProductService {
@@ -35,6 +38,8 @@ public class ProductServiceImpl implements ProductService {
 	private CategoryRepository categoryRepository;
 	@Autowired
 	private ProductMapper productMapper;
+	@PersistenceContext
+    private EntityManager entityManager;
 
 	@Override
 	public List<ProductDto> findAllProduct() {
@@ -97,6 +102,7 @@ public class ProductServiceImpl implements ProductService {
 		product.setPrice(price);
 		product.setStock(stock);
 		product.setDescription(productDescription);
+		product.setViewCount(0);
 		productRepository.save(product);
 	}
 
@@ -137,6 +143,24 @@ public class ProductServiceImpl implements ProductService {
 			productRepository.isNotActive(id);
 		}
 		
+		
+	}
+	@Override
+	public ProductDto findById(Long id) {
+		Optional<Product> productOpt=productRepository.findById(id);
+		if(productOpt.isEmpty()) {
+			throw new ProductNotFoundException("查無此商品");
+		}
+		Product product=productOpt.get();
+		
+		return productMapper.toDto(product);
+	}
+	@Override
+	public void viewCount(Long id) {
+		
+			productRepository.viewCount(id);
+			
+	
 		
 	}
 	

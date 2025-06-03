@@ -13,5 +13,7 @@ public interface ProductService {
 	void deleteProduct(Long id);
 	void isActiveProduct(Long id);
 	void isNotActiveProduct(Long id);
+	ProductDto findById(Long id);
+	void viewCount(Long id);
 	
 }

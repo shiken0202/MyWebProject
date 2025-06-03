@@ -20,11 +20,16 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Transactional
 	@Modifying
 	@Query("update Product p set p.isActive =true where p.id=:id")
-	public int isActive(Long id);
+	public int isActive(@Param("id")Long id);
 	
 
 	@Transactional
 	@Modifying
 	@Query("update Product p set p.isActive =false where p.id=:id")
-	public int isNotActive(Long id);
+	public int isNotActive(@Param("id")Long id);
+	
+	@Transactional
+	@Modifying(clearAutomatically = true)
+	@Query("update Product p set p.viewCount = p.viewCount+1 where p.id=:id")
+	public int viewCount(@Param("id")Long id);
 }

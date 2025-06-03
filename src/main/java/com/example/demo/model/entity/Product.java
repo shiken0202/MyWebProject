@@ -56,7 +56,7 @@ public class Product {
     @Column(length=255)
     private String description;
     @Column(name = "view_count")
-    private Integer viewCount;
+    private Integer viewCount=0;
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive=false;

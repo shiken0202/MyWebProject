@@ -111,4 +111,14 @@ public class ProductController {
 		}
 		
 	}
+	@GetMapping("/product/{id}")
+	public ResponseEntity<ApiResponse<ProductDto>>findById(@PathVariable Long id){
+		ProductDto productDto=productService.findById(id);
+		return ResponseEntity.ok(ApiResponse.success("查詢商品成功", productDto));
+	}
+	@PutMapping("/product/view/{id}")
+	public ResponseEntity<ApiResponse<Void>>viewCount(@PathVariable Long id){
+		productService.viewCount(id);
+		return ResponseEntity.ok(ApiResponse.success("商品觀看次數新增成功", null));
+	}
 }

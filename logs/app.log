@@ -155,3 +155,477 @@
 2025-06-03T03:01:06.467+08:00  INFO 80520 --- [MyWebProject] [RMI TCP Connection(49)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-06-03T03:01:06.468+08:00  INFO 80520 --- [MyWebProject] [RMI TCP Connection(49)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-06-03T03:01:06.470+08:00  INFO 80520 --- [MyWebProject] [RMI TCP Connection(49)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-03T11:35:08.244+08:00  INFO 9020 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 9020 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T11:35:08.245+08:00  INFO 9020 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T11:35:08.817+08:00  INFO 9020 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T11:35:08.818+08:00  INFO 9020 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T11:35:08.843+08:00  INFO 9020 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T11:35:08.844+08:00  INFO 9020 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T11:35:08.845+08:00  INFO 9020 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T11:35:08.846+08:00  INFO 9020 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T11:35:08.847+08:00  INFO 9020 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T11:35:08.847+08:00  INFO 9020 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 0 JDBC repository interfaces.
+2025-06-03T11:35:08.854+08:00  INFO 9020 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T11:35:08.854+08:00  INFO 9020 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T11:35:08.873+08:00  INFO 9020 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+2025-06-03T11:35:09.246+08:00  INFO 9020 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T11:35:09.256+08:00  INFO 9020 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T11:35:09.256+08:00  INFO 9020 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T11:35:09.360+08:00  INFO 9020 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T11:35:09.369+08:00  INFO 9020 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T11:35:09.370+08:00  INFO 9020 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1100 ms
+2025-06-03T11:35:09.463+08:00  INFO 9020 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T11:35:09.507+08:00  INFO 9020 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T11:35:09.529+08:00  INFO 9020 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T11:35:09.713+08:00  INFO 9020 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T11:35:09.733+08:00  INFO 9020 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T11:35:09.831+08:00  INFO 9020 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f65aa58
+2025-06-03T11:35:09.833+08:00  INFO 9020 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T11:35:09.897+08:00  INFO 9020 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T11:35:10.621+08:00  INFO 9020 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T11:35:10.750+08:00  INFO 9020 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T11:35:11.114+08:00  INFO 9020 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T11:35:11.827+08:00  INFO 9020 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T11:35:12.472+08:00  INFO 9020 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T11:35:12.494+08:00  INFO 9020 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 4.497 seconds (process running for 4.898)
+2025-06-03T11:35:27.925+08:00  INFO 9020 --- [MyWebProject] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T11:35:27.925+08:00  INFO 9020 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T11:35:27.926+08:00  INFO 9020 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-03T12:42:25.061+08:00  WARN 9020 --- [MyWebProject] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001
+2025-06-03T12:42:25.061+08:00 ERROR 9020 --- [MyWebProject] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column 'description' at row 1
+2025-06-03T12:42:29.210+08:00  WARN 9020 --- [MyWebProject] [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001
+2025-06-03T12:42:29.210+08:00 ERROR 9020 --- [MyWebProject] [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column 'description' at row 1
+2025-06-03T12:43:22.519+08:00  WARN 9020 --- [MyWebProject] [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001
+2025-06-03T12:43:22.519+08:00 ERROR 9020 --- [MyWebProject] [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column 'description' at row 1
+2025-06-03T13:49:51.111+08:00  INFO 9020 --- [MyWebProject] [RMI TCP Connection(141)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-06-03T13:49:51.112+08:00  INFO 9020 --- [MyWebProject] [RMI TCP Connection(141)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03T13:49:51.115+08:00  INFO 9020 --- [MyWebProject] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-03T13:49:51.117+08:00  INFO 9020 --- [MyWebProject] [RMI TCP Connection(141)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T13:49:51.118+08:00  INFO 9020 --- [MyWebProject] [RMI TCP Connection(141)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-03T13:49:51.120+08:00  INFO 9020 --- [MyWebProject] [RMI TCP Connection(141)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-03T13:49:53.131+08:00  INFO 11156 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 11156 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T13:49:53.132+08:00  INFO 11156 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T13:49:53.648+08:00  INFO 11156 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T13:49:53.649+08:00  INFO 11156 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T13:49:53.672+08:00  INFO 11156 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T13:49:53.673+08:00  INFO 11156 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T13:49:53.674+08:00  INFO 11156 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T13:49:53.676+08:00  INFO 11156 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T13:49:53.676+08:00  INFO 11156 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T13:49:53.677+08:00  INFO 11156 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 JDBC repository interfaces.
+2025-06-03T13:49:53.684+08:00  INFO 11156 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T13:49:53.684+08:00  INFO 11156 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T13:49:53.710+08:00  INFO 11156 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 5 JPA repository interfaces.
+2025-06-03T13:49:54.091+08:00  INFO 11156 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T13:49:54.100+08:00  INFO 11156 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T13:49:54.100+08:00  INFO 11156 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T13:49:54.210+08:00  INFO 11156 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T13:49:54.214+08:00  INFO 11156 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T13:49:54.215+08:00  INFO 11156 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1055 ms
+2025-06-03T13:49:54.308+08:00  INFO 11156 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T13:49:54.345+08:00  INFO 11156 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T13:49:54.367+08:00  INFO 11156 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T13:49:54.562+08:00  INFO 11156 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T13:49:54.583+08:00  INFO 11156 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T13:49:54.690+08:00  INFO 11156 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@673a9db4
+2025-06-03T13:49:54.691+08:00  INFO 11156 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T13:49:54.744+08:00  INFO 11156 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T13:49:55.431+08:00  INFO 11156 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T13:49:55.503+08:00  INFO 11156 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T13:49:55.705+08:00  INFO 11156 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T13:49:56.241+08:00  INFO 11156 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T13:49:56.499+08:00  INFO 11156 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T13:49:56.504+08:00  INFO 11156 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.612 seconds (process running for 4.044)
+2025-06-03T13:50:01.769+08:00  INFO 11156 --- [MyWebProject] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T13:50:01.770+08:00  INFO 11156 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T13:50:01.770+08:00  INFO 11156 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-03T16:10:52.857+08:00  INFO 16096 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 16096 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T16:10:52.859+08:00  INFO 16096 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T16:10:53.262+08:00  INFO 16096 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:10:53.263+08:00  INFO 16096 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T16:10:53.286+08:00  INFO 16096 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:10:53.287+08:00  INFO 16096 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:10:53.288+08:00  INFO 16096 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:10:53.289+08:00  INFO 16096 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:10:53.290+08:00  INFO 16096 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:10:53.290+08:00  INFO 16096 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 JDBC repository interfaces.
+2025-06-03T16:10:53.297+08:00  INFO 16096 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:10:53.297+08:00  INFO 16096 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T16:10:53.318+08:00  INFO 16096 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 5 JPA repository interfaces.
+2025-06-03T16:10:53.699+08:00  INFO 16096 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T16:10:53.708+08:00  INFO 16096 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T16:10:53.709+08:00  INFO 16096 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T16:10:53.819+08:00  INFO 16096 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T16:10:53.828+08:00  INFO 16096 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T16:10:53.829+08:00  INFO 16096 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 944 ms
+2025-06-03T16:10:53.917+08:00  INFO 16096 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T16:10:53.949+08:00  INFO 16096 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T16:10:53.971+08:00  INFO 16096 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T16:10:54.143+08:00  INFO 16096 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T16:10:54.164+08:00  INFO 16096 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T16:10:54.270+08:00  INFO 16096 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d5bb5c
+2025-06-03T16:10:54.272+08:00  INFO 16096 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T16:10:54.321+08:00  INFO 16096 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T16:10:54.992+08:00  INFO 16096 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T16:10:55.059+08:00  INFO 16096 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:10:55.274+08:00  INFO 16096 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T16:10:55.824+08:00  INFO 16096 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T16:10:56.083+08:00  INFO 16096 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T16:10:56.087+08:00  INFO 16096 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.476 seconds (process running for 3.903)
+2025-06-03T16:10:59.576+08:00  INFO 16096 --- [MyWebProject] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T16:10:59.576+08:00  INFO 16096 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T16:10:59.577+08:00  INFO 16096 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-03T16:17:17.922+08:00  INFO 10968 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 10968 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T16:17:17.923+08:00  INFO 10968 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T16:17:18.326+08:00  INFO 10968 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:17:18.327+08:00  INFO 10968 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T16:17:18.350+08:00  INFO 10968 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:17:18.351+08:00  INFO 10968 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:17:18.352+08:00  INFO 10968 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:17:18.353+08:00  INFO 10968 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:17:18.354+08:00  INFO 10968 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:17:18.355+08:00  INFO 10968 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 0 JDBC repository interfaces.
+2025-06-03T16:17:18.361+08:00  INFO 10968 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:17:18.362+08:00  INFO 10968 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T16:17:18.384+08:00  INFO 10968 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 5 JPA repository interfaces.
+2025-06-03T16:17:18.750+08:00  INFO 10968 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T16:17:18.759+08:00  INFO 10968 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T16:17:18.759+08:00  INFO 10968 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T16:17:18.871+08:00  INFO 10968 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T16:17:18.875+08:00  INFO 10968 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T16:17:18.875+08:00  INFO 10968 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 927 ms
+2025-06-03T16:17:18.961+08:00  INFO 10968 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T16:17:18.993+08:00  INFO 10968 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T16:17:19.016+08:00  INFO 10968 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T16:17:19.179+08:00  INFO 10968 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T16:17:19.201+08:00  INFO 10968 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T16:17:19.300+08:00  INFO 10968 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48da64f2
+2025-06-03T16:17:19.302+08:00  INFO 10968 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T16:17:19.350+08:00  INFO 10968 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T16:17:20.010+08:00  INFO 10968 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T16:17:20.078+08:00  INFO 10968 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:17:20.283+08:00  INFO 10968 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T16:17:20.824+08:00  INFO 10968 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T16:17:21.071+08:00  INFO 10968 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T16:17:21.075+08:00  INFO 10968 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.398 seconds (process running for 3.82)
+2025-06-03T16:24:31.524+08:00  INFO 10968 --- [MyWebProject] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T16:24:31.524+08:00  INFO 10968 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T16:24:31.525+08:00  INFO 10968 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-03T16:30:43.732+08:00  INFO 10968 --- [MyWebProject] [RMI TCP Connection(19)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-06-03T16:30:43.734+08:00  INFO 10968 --- [MyWebProject] [RMI TCP Connection(19)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03T16:30:43.737+08:00  INFO 10968 --- [MyWebProject] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-03T16:30:43.740+08:00  INFO 10968 --- [MyWebProject] [RMI TCP Connection(19)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:30:43.741+08:00  INFO 10968 --- [MyWebProject] [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-03T16:30:43.745+08:00  INFO 10968 --- [MyWebProject] [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-03T16:30:45.736+08:00  INFO 732 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 732 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T16:30:45.737+08:00  INFO 732 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T16:30:46.124+08:00  INFO 732 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:30:46.125+08:00  INFO 732 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T16:30:46.148+08:00  INFO 732 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:30:46.149+08:00  INFO 732 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:30:46.150+08:00  INFO 732 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:30:46.151+08:00  INFO 732 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:30:46.152+08:00  INFO 732 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:30:46.153+08:00  INFO 732 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 0 JDBC repository interfaces.
+2025-06-03T16:30:46.159+08:00  INFO 732 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:30:46.160+08:00  INFO 732 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T16:30:46.182+08:00  INFO 732 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 5 JPA repository interfaces.
+2025-06-03T16:30:46.551+08:00  INFO 732 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T16:30:46.560+08:00  INFO 732 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T16:30:46.560+08:00  INFO 732 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T16:30:46.664+08:00  INFO 732 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T16:30:46.668+08:00  INFO 732 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T16:30:46.668+08:00  INFO 732 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 906 ms
+2025-06-03T16:30:46.755+08:00  INFO 732 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T16:30:46.787+08:00  INFO 732 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T16:30:46.807+08:00  INFO 732 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T16:30:46.965+08:00  INFO 732 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T16:30:46.984+08:00  INFO 732 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T16:30:47.088+08:00  INFO 732 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@35d4035f
+2025-06-03T16:30:47.089+08:00  INFO 732 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T16:30:47.138+08:00  INFO 732 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T16:30:47.787+08:00  INFO 732 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T16:30:47.853+08:00  INFO 732 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:30:48.054+08:00  INFO 732 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T16:30:48.586+08:00  INFO 732 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T16:30:48.825+08:00  INFO 732 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T16:30:48.829+08:00  INFO 732 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.335 seconds (process running for 3.758)
+2025-06-03T16:30:54.300+08:00  INFO 732 --- [MyWebProject] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T16:30:54.300+08:00  INFO 732 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T16:30:54.301+08:00  INFO 732 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-03T16:31:45.839+08:00  INFO 732 --- [MyWebProject] [RMI TCP Connection(5)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-06-03T16:31:45.841+08:00  INFO 732 --- [MyWebProject] [RMI TCP Connection(5)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03T16:31:45.843+08:00  INFO 732 --- [MyWebProject] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-03T16:31:45.846+08:00  INFO 732 --- [MyWebProject] [RMI TCP Connection(5)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:31:45.847+08:00  INFO 732 --- [MyWebProject] [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-03T16:31:45.851+08:00  INFO 732 --- [MyWebProject] [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-03T16:31:47.851+08:00  INFO 4280 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 4280 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T16:31:47.852+08:00  INFO 4280 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T16:31:48.246+08:00  INFO 4280 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:31:48.247+08:00  INFO 4280 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T16:31:48.273+08:00  INFO 4280 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:31:48.274+08:00  INFO 4280 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:31:48.276+08:00  INFO 4280 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:31:48.277+08:00  INFO 4280 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:31:48.278+08:00  INFO 4280 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:31:48.278+08:00  INFO 4280 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 JDBC repository interfaces.
+2025-06-03T16:31:48.285+08:00  INFO 4280 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:31:48.285+08:00  INFO 4280 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T16:31:48.306+08:00  INFO 4280 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 5 JPA repository interfaces.
+2025-06-03T16:31:48.674+08:00  INFO 4280 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T16:31:48.684+08:00  INFO 4280 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T16:31:48.684+08:00  INFO 4280 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T16:31:48.790+08:00  INFO 4280 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T16:31:48.794+08:00  INFO 4280 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T16:31:48.795+08:00  INFO 4280 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 917 ms
+2025-06-03T16:31:48.887+08:00  INFO 4280 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T16:31:48.919+08:00  INFO 4280 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T16:31:48.940+08:00  INFO 4280 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T16:31:49.106+08:00  INFO 4280 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T16:31:49.126+08:00  INFO 4280 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T16:31:49.229+08:00  INFO 4280 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7831d1aa
+2025-06-03T16:31:49.230+08:00  INFO 4280 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T16:31:49.279+08:00  INFO 4280 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T16:31:49.947+08:00  INFO 4280 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T16:31:50.239+08:00  INFO 4280 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:31:50.439+08:00  INFO 4280 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T16:31:50.986+08:00  INFO 4280 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T16:31:51.233+08:00  INFO 4280 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T16:31:51.237+08:00  INFO 4280 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.629 seconds (process running for 4.052)
+2025-06-03T16:31:54.973+08:00  INFO 4280 --- [MyWebProject] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T16:31:54.973+08:00  INFO 4280 --- [MyWebProject] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T16:31:54.974+08:00  INFO 4280 --- [MyWebProject] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-03T16:36:50.774+08:00  INFO 14976 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 14976 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T16:36:50.775+08:00  INFO 14976 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T16:36:51.167+08:00  INFO 14976 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:36:51.168+08:00  INFO 14976 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T16:36:51.191+08:00  INFO 14976 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:36:51.192+08:00  INFO 14976 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:36:51.194+08:00  INFO 14976 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:36:51.195+08:00  INFO 14976 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:36:51.196+08:00  INFO 14976 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:36:51.196+08:00  INFO 14976 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 JDBC repository interfaces.
+2025-06-03T16:36:51.203+08:00  INFO 14976 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:36:51.203+08:00  INFO 14976 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T16:36:51.225+08:00  INFO 14976 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 5 JPA repository interfaces.
+2025-06-03T16:36:51.595+08:00  INFO 14976 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T16:36:51.605+08:00  INFO 14976 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T16:36:51.605+08:00  INFO 14976 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T16:36:51.711+08:00  INFO 14976 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T16:36:51.715+08:00  INFO 14976 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T16:36:51.715+08:00  INFO 14976 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 915 ms
+2025-06-03T16:36:51.803+08:00  INFO 14976 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T16:36:51.836+08:00  INFO 14976 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T16:36:51.858+08:00  INFO 14976 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T16:36:52.022+08:00  INFO 14976 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T16:36:52.042+08:00  INFO 14976 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T16:36:52.143+08:00  INFO 14976 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b64bf61
+2025-06-03T16:36:52.145+08:00  INFO 14976 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T16:36:52.197+08:00  INFO 14976 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T16:36:52.854+08:00  INFO 14976 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T16:36:52.922+08:00  INFO 14976 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:36:53.123+08:00  INFO 14976 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T16:36:53.653+08:00  INFO 14976 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T16:36:53.897+08:00  INFO 14976 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T16:36:53.901+08:00  INFO 14976 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.373 seconds (process running for 3.798)
+2025-06-03T16:36:57.776+08:00  INFO 14976 --- [MyWebProject] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T16:36:57.777+08:00  INFO 14976 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T16:36:57.777+08:00  INFO 14976 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-03T16:37:28.316+08:00  INFO 14976 --- [MyWebProject] [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-06-03T16:37:28.318+08:00  INFO 14976 --- [MyWebProject] [RMI TCP Connection(6)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03T16:37:28.320+08:00  INFO 14976 --- [MyWebProject] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-03T16:37:28.323+08:00  INFO 14976 --- [MyWebProject] [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:37:28.324+08:00  INFO 14976 --- [MyWebProject] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-03T16:37:28.328+08:00  INFO 14976 --- [MyWebProject] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-03T16:37:30.329+08:00  INFO 15436 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 15436 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T16:37:30.330+08:00  INFO 15436 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T16:37:30.721+08:00  INFO 15436 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:37:30.722+08:00  INFO 15436 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T16:37:30.745+08:00  INFO 15436 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:37:30.746+08:00  INFO 15436 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:37:30.747+08:00  INFO 15436 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:37:30.748+08:00  INFO 15436 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:37:30.749+08:00  INFO 15436 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:37:30.750+08:00  INFO 15436 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 JDBC repository interfaces.
+2025-06-03T16:37:30.756+08:00  INFO 15436 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:37:30.757+08:00  INFO 15436 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T16:37:30.779+08:00  INFO 15436 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+2025-06-03T16:37:31.149+08:00  INFO 15436 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T16:37:31.158+08:00  INFO 15436 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T16:37:31.158+08:00  INFO 15436 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T16:37:31.264+08:00  INFO 15436 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T16:37:31.269+08:00  INFO 15436 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T16:37:31.269+08:00  INFO 15436 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 913 ms
+2025-06-03T16:37:31.357+08:00  INFO 15436 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T16:37:31.388+08:00  INFO 15436 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T16:37:31.409+08:00  INFO 15436 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T16:37:31.572+08:00  INFO 15436 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T16:37:31.591+08:00  INFO 15436 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T16:37:31.697+08:00  INFO 15436 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6585df70
+2025-06-03T16:37:31.698+08:00  INFO 15436 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T16:37:31.748+08:00  INFO 15436 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T16:37:32.412+08:00  INFO 15436 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T16:37:32.482+08:00  INFO 15436 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:37:32.685+08:00  INFO 15436 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T16:37:33.219+08:00  INFO 15436 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T16:37:33.465+08:00  INFO 15436 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T16:37:33.469+08:00  INFO 15436 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.384 seconds (process running for 3.807)
+2025-06-03T16:37:38.456+08:00  INFO 15436 --- [MyWebProject] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T16:37:38.456+08:00  INFO 15436 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T16:37:38.457+08:00  INFO 15436 --- [MyWebProject] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-03T16:38:46.420+08:00  INFO 15436 --- [MyWebProject] [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-06-03T16:38:46.421+08:00  INFO 15436 --- [MyWebProject] [RMI TCP Connection(7)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03T16:38:46.424+08:00  INFO 15436 --- [MyWebProject] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-03T16:38:46.426+08:00  INFO 15436 --- [MyWebProject] [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:38:46.427+08:00  INFO 15436 --- [MyWebProject] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-03T16:38:46.430+08:00  INFO 15436 --- [MyWebProject] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-03T16:38:52.402+08:00  INFO 16328 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 16328 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T16:38:52.403+08:00  INFO 16328 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T16:38:52.742+08:00  INFO 16328 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:38:52.743+08:00  INFO 16328 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T16:38:52.763+08:00  INFO 16328 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:38:52.764+08:00  INFO 16328 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:38:52.765+08:00  INFO 16328 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:38:52.766+08:00  INFO 16328 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:38:52.767+08:00  INFO 16328 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T16:38:52.768+08:00  INFO 16328 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 JDBC repository interfaces.
+2025-06-03T16:38:52.773+08:00  INFO 16328 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T16:38:52.774+08:00  INFO 16328 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T16:38:52.792+08:00  INFO 16328 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+2025-06-03T16:38:53.094+08:00  INFO 16328 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T16:38:53.102+08:00  INFO 16328 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T16:38:53.102+08:00  INFO 16328 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T16:38:53.203+08:00  INFO 16328 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T16:38:53.207+08:00  INFO 16328 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T16:38:53.207+08:00  INFO 16328 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 784 ms
+2025-06-03T16:38:53.289+08:00  INFO 16328 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T16:38:53.314+08:00  INFO 16328 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T16:38:53.331+08:00  INFO 16328 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T16:38:53.465+08:00  INFO 16328 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T16:38:53.481+08:00  INFO 16328 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T16:38:53.564+08:00  INFO 16328 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6bc25ac2
+2025-06-03T16:38:53.565+08:00  INFO 16328 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T16:38:53.609+08:00  INFO 16328 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T16:38:54.162+08:00  INFO 16328 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T16:38:54.225+08:00  INFO 16328 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T16:38:54.401+08:00  INFO 16328 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T16:38:54.887+08:00  INFO 16328 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T16:38:55.098+08:00  INFO 16328 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T16:38:55.102+08:00  INFO 16328 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 2.901 seconds (process running for 3.216)
+2025-06-03T16:39:00.227+08:00  INFO 16328 --- [MyWebProject] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T16:39:00.227+08:00  INFO 16328 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T16:39:00.228+08:00  INFO 16328 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-03T17:04:27.365+08:00  WARN 16328 --- [MyWebProject] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2025-06-03T17:04:27.366+08:00 ERROR 16328 --- [MyWebProject] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'view_count' cannot be null
+2025-06-03T17:09:26.931+08:00  INFO 16328 --- [MyWebProject] [RMI TCP Connection(36)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-06-03T17:09:26.932+08:00  INFO 16328 --- [MyWebProject] [RMI TCP Connection(36)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03T17:09:26.942+08:00  INFO 16328 --- [MyWebProject] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-03T17:09:26.945+08:00  INFO 16328 --- [MyWebProject] [RMI TCP Connection(36)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T17:09:26.946+08:00  INFO 16328 --- [MyWebProject] [RMI TCP Connection(36)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-03T17:09:26.947+08:00  INFO 16328 --- [MyWebProject] [RMI TCP Connection(36)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-03T17:09:28.901+08:00  INFO 12400 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Starting MyWebProjectApplication using Java 21.0.6 with PID 12400 (E:\JAVA\WorkSpace\MyWebProject\target\classes started by NTPU in E:\JAVA\WorkSpace\MyWebProject)
+2025-06-03T17:09:28.902+08:00  INFO 12400 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-03T17:09:29.289+08:00  INFO 12400 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T17:09:29.290+08:00  INFO 12400 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-03T17:09:29.317+08:00  INFO 12400 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T17:09:29.318+08:00  INFO 12400 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductImageRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T17:09:29.320+08:00  INFO 12400 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T17:09:29.320+08:00  INFO 12400 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.StoreRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T17:09:29.321+08:00  INFO 12400 --- [MyWebProject] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-06-03T17:09:29.322+08:00  INFO 12400 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 0 JDBC repository interfaces.
+2025-06-03T17:09:29.328+08:00  INFO 12400 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03T17:09:29.329+08:00  INFO 12400 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03T17:09:29.350+08:00  INFO 12400 --- [MyWebProject] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 5 JPA repository interfaces.
+2025-06-03T17:09:29.716+08:00  INFO 12400 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-03T17:09:29.725+08:00  INFO 12400 --- [MyWebProject] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-03T17:09:29.725+08:00  INFO 12400 --- [MyWebProject] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-03T17:09:29.831+08:00  INFO 12400 --- [MyWebProject] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-06-03T17:09:29.835+08:00  INFO 12400 --- [MyWebProject] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-03T17:09:29.835+08:00  INFO 12400 --- [MyWebProject] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 909 ms
+2025-06-03T17:09:29.924+08:00  INFO 12400 --- [MyWebProject] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03T17:09:29.956+08:00  INFO 12400 --- [MyWebProject] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-03T17:09:29.977+08:00  INFO 12400 --- [MyWebProject] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-03T17:09:30.137+08:00  INFO 12400 --- [MyWebProject] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03T17:09:30.156+08:00  INFO 12400 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-03T17:09:30.263+08:00  INFO 12400 --- [MyWebProject] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e3ee457
+2025-06-03T17:09:30.264+08:00  INFO 12400 --- [MyWebProject] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-03T17:09:30.315+08:00  INFO 12400 --- [MyWebProject] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03T17:09:30.981+08:00  INFO 12400 --- [MyWebProject] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03T17:09:31.049+08:00  INFO 12400 --- [MyWebProject] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03T17:09:31.252+08:00  INFO 12400 --- [MyWebProject] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03T17:09:31.789+08:00  INFO 12400 --- [MyWebProject] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-06-03T17:09:32.041+08:00  INFO 12400 --- [MyWebProject] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-03T17:09:32.045+08:00  INFO 12400 --- [MyWebProject] [main] c.example.demo.MyWebProjectApplication   : Started MyWebProjectApplication in 3.388 seconds (process running for 3.822)
+2025-06-03T17:09:34.634+08:00  INFO 12400 --- [MyWebProject] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03T17:09:34.634+08:00  INFO 12400 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-03T17:09:34.635+08:00  INFO 12400 --- [MyWebProject] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
