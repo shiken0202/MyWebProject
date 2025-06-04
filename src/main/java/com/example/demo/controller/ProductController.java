@@ -27,13 +27,11 @@ import jakarta.servlet.http.HttpSession;
 @CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "true")
 public class ProductController {
 
-    private final ProductServiceImpl productServiceImpl;
+    
 	@Autowired
 	private ProductService productService;
 
-    ProductController(ProductServiceImpl productServiceImpl) {
-        this.productServiceImpl = productServiceImpl;
-    }
+   
 	@PostMapping("/product/add")
 	public ResponseEntity<ApiResponse<Void>>addProduct(@RequestBody ProductDto productDto,HttpSession session){
 		try {
