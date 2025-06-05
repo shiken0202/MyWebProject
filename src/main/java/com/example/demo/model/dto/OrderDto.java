@@ -18,10 +18,10 @@ public class OrderDto {
     private BigDecimal totalAmount;
     private String status;
     private LocalDateTime createdAt;
-    private LocalDateTime updateAt;
+    private String deliveryMethod;
     private String address;
     private String paymentType;
 
     // 一張訂單有多個訂單明細，只存明細 id 清單
-    private List<Long> orderItemIds;
+    private List<OrderItemDto> orderItems; // 直接存明細內容
 }

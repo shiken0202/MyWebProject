@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class CartItemDto {
     private Long id;
     private Long userId;         // 對應 User 的 id
+    private Long storeId;
     private Long productId;      // 對應 Product 的 id
     private String productName;
     private Integer stock;

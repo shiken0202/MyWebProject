@@ -4,9 +4,13 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,6 +28,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="orders")
+@EntityListeners(AuditingEntityListener.class)
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,12 +49,12 @@ public class Order {
 	
 	@Column(nullable = false,length = 20)
 	private String status;
-	
+	@CreatedDate
 	@Column(name="created_at",nullable=false)
 	private LocalDateTime createdAt;
 	
-	@Column(name="updated_at",nullable=false)
-	private LocalDateTime updateAt;
+	@Column(name="delivery_method",nullable=false,length = 50)
+	private String deliveryMethod;
 	
 	@Column(nullable=false,length = 255)
 	private String address;
@@ -58,7 +63,7 @@ public class Order {
     private String paymentType;
 
     // 一對多：一張訂單有多個訂單明細
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL,orphanRemoval =true )
     private List<OrderItem> orderItems;
 
 }
