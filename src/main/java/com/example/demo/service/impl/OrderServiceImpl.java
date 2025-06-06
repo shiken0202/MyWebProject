@@ -63,7 +63,7 @@ public class OrderServiceImpl  implements OrderService{
 	        	Product product = productRepository.findById(orderItemDto.getProductId())
 	                    .orElseThrow(() -> new ProductNotFoundException("商品不存在 ID: " + orderItemDto.getProductId()));
 	        	if (product.getStock() < orderItemDto.getQuantity()) {
-	                throw new RuntimeException("商品库存不足: " + product.getTitle());
+	                throw new RuntimeException("商品庫存不足: " + product.getTitle());
 	            }
 	        	 OrderItem orderItem = new OrderItem();
 	        	 orderItem.setOrder(order);
@@ -85,7 +85,7 @@ public class OrderServiceImpl  implements OrderService{
 	@Override
 	public void updateOrderStatus(Long orderId, String status) {
 		 Order order = ordersRepository.findById(orderId)
-		            .orElseThrow(() -> new RuntimeException("订单不存在"));
+		            .orElseThrow(() -> new OrderNotFoundException("訂單不存在"));
 		    order.setStatus(status);
 		    ordersRepository.save(order);
 	}
