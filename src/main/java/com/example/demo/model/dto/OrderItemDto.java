@@ -2,6 +2,7 @@ package com.example.demo.model.dto;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,8 @@ public class OrderItemDto {
     private Integer quantity;
     private BigDecimal price;
     private BigDecimal subtotal;
+    
+    private String productTitleSnapshot;
+    private String productBrandSnapshot;
+    private BigDecimal productPriceSnapshot;
 }

@@ -12,8 +12,8 @@ import com.example.demo.model.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Query("SELECT DISTINCT p FROM Product p " +
-	           "LEFT JOIN FETCH p.productImages " + // 強制載入圖片
-	           "LEFT JOIN FETCH p.category " +      // 強制載入分類
+	           "LEFT JOIN FETCH p.productImages " + 
+	           "LEFT JOIN FETCH p.category " +      
 	           "WHERE p.store.id = :storeId")
     List<Product> findByStoreIdWithImages(@Param("storeId") Long storeId);
 	
@@ -32,4 +32,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Modifying(clearAutomatically = true)
 	@Query("update Product p set p.viewCount = p.viewCount+1 where p.id=:id")
 	public int viewCount(@Param("id")Long id);
+	
+	@Query("SELECT p FROM Product p WHERE LOWER(p.title) LIKE LOWER(CONCAT('%',:keywords,'%'))OR "+
+	"LOWER(p.brand) LIKE LOWER(CONCAT('%',:keywords,'%'))")
+	public List<Product> searchByKeyWords(@Param("keywords") String keywords);
 }

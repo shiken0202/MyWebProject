@@ -28,7 +28,7 @@ public class OrderItem {
 
     // 多對一：多個訂單明細對一個商品
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @Column(nullable = false)
@@ -39,6 +39,14 @@ public class OrderItem {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal subtotal;
+    
+    @Column(name = "product_title_snapshot", nullable = false)
+    private String productTitleSnapshot;
 
-    // Getter/Setter ...
+    @Column(name = "product_brand_snapshot")
+    private String productBrandSnapshot;
+
+    @Column(name = "product_price_snapshot", nullable = false, precision = 10, scale = 2)
+    private BigDecimal productPriceSnapshot;
+    
 }

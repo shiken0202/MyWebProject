@@ -64,16 +64,16 @@ public class Product {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
     
- // 一對多：一個商品有多個圖片
+ 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductImage> productImages;
 
-    // 一對多：一個商品有多個訂單明細
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    
+    @OneToMany(mappedBy = "product" )
     private List<OrderItem> orderItems;
 
-    // 一對多：一個商品有多個購物車項目
+   
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<CartItem> cartItems;
-    // Getter/Setter ...
+ 
 }

@@ -17,9 +17,11 @@ import com.example.demo.exception.StoreNotFoundException;
 import com.example.demo.mapper.ProductMapper;
 import com.example.demo.model.dto.ProductDto;
 import com.example.demo.model.entity.Category;
+import com.example.demo.model.entity.OrderItem;
 import com.example.demo.model.entity.Product;
 import com.example.demo.model.entity.Store;
 import com.example.demo.repository.CategoryRepository;
+import com.example.demo.repository.OrderItemRepository;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.repository.StoreRepository;
 import com.example.demo.service.ProductService;
@@ -40,6 +42,9 @@ public class ProductServiceImpl implements ProductService {
 	private ProductMapper productMapper;
 	@PersistenceContext
     private EntityManager entityManager;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
 	@Override
 	public List<ProductDto> findAllProduct() {
@@ -113,6 +118,11 @@ public class ProductServiceImpl implements ProductService {
 			throw new ProductNotFoundException("查無商品");
 		}
 		Product product=productOpt.get();
+		for(OrderItem orderItem:product.getOrderItems()) {
+			orderItem.setProduct(null);
+			orderItemRepository.save(orderItem);
+			
+		}
 		productRepository.delete(product);
 	}
 
@@ -162,6 +172,11 @@ public class ProductServiceImpl implements ProductService {
 			
 	
 		
+	}
+	@Override
+	public List<ProductDto> searchByKeyWords(String keywords) {
+		// TODO 自動產生的方法 Stub
+		return productRepository.searchByKeyWords(keywords).stream().map(productMapper::toDto).collect(Collectors.toList());
 	}
 	
 

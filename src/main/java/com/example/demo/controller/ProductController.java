@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.exception.CategoryNotFoundException;
@@ -118,5 +119,10 @@ public class ProductController {
 	public ResponseEntity<ApiResponse<Void>>viewCount(@PathVariable Long id){
 		productService.viewCount(id);
 		return ResponseEntity.ok(ApiResponse.success("商品觀看次數新增成功", null));
+	}
+	@GetMapping("/product/search")
+	public ResponseEntity<ApiResponse<List<ProductDto>>>searchProducts(@RequestParam String keywords){
+		List<ProductDto>productDtos=productService.searchByKeyWords(keywords);
+		return ResponseEntity.ok(ApiResponse.success("關鍵字搜尋成功", productDtos));
 	}
 }

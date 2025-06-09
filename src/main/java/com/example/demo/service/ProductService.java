@@ -8,6 +8,7 @@ import com.example.demo.model.dto.ProductDto;
 public interface ProductService {
 	List<ProductDto> findAllProduct();
 	List<ProductDto> findProductsByStoreId(Long StoreId);
+	List<ProductDto> searchByKeyWords(String keywords);
 	void addProduct(Long storeId,String title,String brand ,Integer categoryId,BigDecimal price,Integer stock,String productDescription);
 	void updateProduct(Long id,String title,String brand ,Integer categoryId,BigDecimal price,Integer stock,String productDescription);
 	void deleteProduct(Long id);
@@ -15,5 +16,6 @@ public interface ProductService {
 	void isNotActiveProduct(Long id);
 	ProductDto findById(Long id);
 	void viewCount(Long id);
+	
 	
 }
