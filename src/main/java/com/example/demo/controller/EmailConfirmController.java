@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.lang.ProcessBuilder.Redirect;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.dto.UserDto;
 import com.example.demo.model.entity.User;
 import com.example.demo.repository.UserRepository;
@@ -27,14 +30,17 @@ public class EmailConfirmController {
 	UserService userService;
 	@GetMapping(value = "/email/confirm")
 	public ResponseEntity<ApiResponse<Void>>confirm(@RequestParam String username,HttpSession session){
-	
-	userService.emailConfirmOK(username);
-	if(session.getAttribute("userCert")==null) {
-		return null;
+	try {
+		userService.emailConfirmOK(username);
+		
+		session.invalidate();
+		System.out.print(username);
+		
+		return ResponseEntity.ok(ApiResponse.success("驗證成功", null));
+		
+	}catch (UserNotFoundException e) {
+		return ResponseEntity.badRequest().body(ApiResponse.error(400, e.getMessage()));
 	}
-	session.invalidate();
-	System.out.print(username);
-	return ResponseEntity.ok(ApiResponse.success("驗證成功", null));
 			
 	}
 	

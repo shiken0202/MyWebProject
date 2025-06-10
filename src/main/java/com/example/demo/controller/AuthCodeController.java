@@ -22,15 +22,21 @@ import jakarta.servlet.http.HttpSession;
 public class AuthCodeController {
 
 	@GetMapping(value="/captcha",produces = MediaType.IMAGE_JPEG_VALUE)
-	public byte[] authcode(HttpSession req) throws IOException{
+	public byte[] authcode(HttpSession session) throws IOException{
 		String authcode=generateAuthCode();
 		BufferedImage AuthCodeImage =getAuthCodeImage(authcode);
 		ByteArrayOutputStream baos=new ByteArrayOutputStream();
-		ImageIO.write(AuthCodeImage,"JPG",baos);
-		byte[]bytes=baos.toByteArray();
-		req.setAttribute("authcode", authcode);
-		System.out.println("認證碼是: "+authcode);
-		return bytes;
+		try {
+			ImageIO.write(AuthCodeImage,"JPG",baos);
+			byte[]bytes=baos.toByteArray();
+			session.setAttribute("authcode", authcode);
+			return bytes;
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		    throw new RuntimeException("生成驗證碼圖像失敗", e);
+		}
+		
 	}
 	
 	private String generateAuthCode() {
@@ -46,6 +52,8 @@ public class AuthCodeController {
 		}
 	// 利用 Java2D 產生動態圖像
 	private BufferedImage getAuthCodeImage(String authcode) {
+		Random random=new Random();
+		
 		// 建立圖像區域(80x30 TGB)
 		BufferedImage img = new BufferedImage(80, 30, BufferedImage.TYPE_INT_RGB);
 		// 建立畫布
@@ -55,14 +63,13 @@ public class AuthCodeController {
 		// 塗滿背景
 		g.fillRect(0, 0, 80, 30); // 全區域
 		// 設定顏色
-		g.setColor(Color.BLACK);
+		g.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
 		// 設定字型
 		g.setFont(new Font("Arial", Font.BOLD, 22)); // 字體, 風格, 大小
 		// 繪文字
 		g.drawString(authcode, 18, 22); // (18, 22) 表示繪文字左上角的起點
 		//加上干擾線
 		g.setColor(Color.MAGENTA);
-		Random random=new Random();
 		for(int i=0;i<15;i++) {
 			int x1=random.nextInt(80);
 			int y1=random.nextInt(30);

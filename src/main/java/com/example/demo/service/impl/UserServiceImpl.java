@@ -30,9 +30,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void emailConfirmOK(String userName) {
 		if(userName==null) {
-			return;
+			return ;
 		}
-		userRepository.emailConfirmOK(userName);
+		User user=userRepository.findByUserName(userName).orElseThrow(()-> new UserNotFoundException("無此使用者 :"+userName));
+		userRepository.emailConfirmOK(user.getUserName());
 	}
 
 	@Override

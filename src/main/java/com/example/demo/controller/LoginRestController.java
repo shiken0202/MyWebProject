@@ -85,7 +85,7 @@ public class LoginRestController {
 			
 		}
 		userService.addUser(username, email, password, role);
-		String emaillink="http://localhost:8080/MyWebProject/email/confirm?username="+username;
+		String emaillink="http://localhost:5173/MyWebProject/email/confirm?username="+username;
 		emailService.sendEmail(email,emaillink);
 		return ResponseEntity.ok(ApiResponse.success(username+", 註冊成功", null));
 		
