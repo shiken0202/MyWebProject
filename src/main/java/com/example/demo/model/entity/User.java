@@ -74,4 +74,11 @@ public class User {
     // 一對多：一個 user 可以有多個購物車項目
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private java.util.List<CartItem> cartItems;
+    // 作為買家的聊天室
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
+    private List<ChatRoom> buyerChatRooms;
+
+    // 作為賣家的聊天室
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
+    private List<ChatRoom> sellerChatRooms;
 }

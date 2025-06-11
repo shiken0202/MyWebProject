@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.model.dto.CartItemDto;
-import com.example.demo.model.dto.UserDto;
+
 import com.example.demo.model.entity.CartItem;
-import com.example.demo.model.entity.User;
+
 
 @Component
 public class CartItemMapper {

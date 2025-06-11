@@ -49,5 +49,7 @@ public class Store {
     // 一對多：一個 store 可以有多張訂單
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Order> orders;
-    // Getter/Setter ...
+
+    @OneToMany(mappedBy = "store")
+    private List<ChatRoom> chatRooms;
 }

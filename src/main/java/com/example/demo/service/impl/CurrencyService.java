@@ -17,6 +17,7 @@ public class CurrencyService {
 		JsonNode jsonNode;
 		try {
 			jsonNode = objectMapper.readTree(jsonStr);
+			
 			double usdToTwd = jsonNode.get("USDTWD").get("Exrate").asDouble();
 			double usdToJpy = jsonNode.get("USDJPY").get("Exrate").asDouble();
 			// 1 TWD = (1 / usdToTwd) USD，再換成 JPY
