@@ -12,11 +12,12 @@ public class ChatMessageDto {
 	 private Long id;
 	    private Long chatRoomId;       
 	    private Long senderId;         
-	    private String messageType;    
+	    private Long buyerId;
+	    private Long storeId;
 	    private String content;        
-	    private Long productId;        
+	            
 	    private Boolean isRead;        
 	    private LocalDateTime createdAt; 
 	    private String senderName;     
-	    private String productName; 
+	    
 }

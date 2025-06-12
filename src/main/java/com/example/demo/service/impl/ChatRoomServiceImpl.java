@@ -34,7 +34,7 @@ private ChatRoomRepository chatRoomRepository;
 private ChatRoomMapper chatRoomMapper;
 
 	@Override
-	public void createChatRoom(Long buyerId, Long storeId) {
+	public ChatRoom createChatRoom(Long buyerId, Long storeId) {
 		User buyer=userRepository.findById(buyerId).orElseThrow(()->new UserNotFoundException("找不到此用戶"));
 		Store store=storeRepository.findById(storeId).orElseThrow(()->new StoreNotFoundException("找不到商家"));
 		ChatRoom chatroom=new ChatRoom();
@@ -42,7 +42,7 @@ private ChatRoomMapper chatRoomMapper;
 		chatroom.setStore(store);
 		chatroom.setSeller(store.getUser());
 		chatRoomRepository.save(chatroom);
-		
+		return chatroom;
 		
 	}
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.example.demo.model.dto.ChatMessageDto;
 
 import com.example.demo.model.entity.ChatMessage;
+import com.example.demo.repository.ProductRepository;
 
 
 @Component
@@ -14,6 +15,7 @@ public class ChatMessageMapper {
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	
 	
 	public ChatMessageDto toDto(ChatMessage chatmessage) {
 		ChatMessageDto chatMessageDto=modelMapper.map(chatmessage, ChatMessageDto.class);

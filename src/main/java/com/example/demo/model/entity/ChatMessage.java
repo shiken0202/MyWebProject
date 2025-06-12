@@ -29,7 +29,8 @@ public class ChatMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 所屬聊天室
+ 
+	// 所屬聊天室
     @ManyToOne
     @JoinColumn(name = "chat_room_id", nullable = false)
     private ChatRoom chatRoom;
