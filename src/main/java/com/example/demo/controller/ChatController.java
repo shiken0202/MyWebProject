@@ -61,8 +61,9 @@ public class ChatController {
 		            )
 		        );
 		ChatMessageDto responseDto=chatMessageService.saveMessage(dto.getSenderId(),chatRoom,dto.getContent());
-	
+		
 		simpMessagingTemplate.convertAndSend("/topic/messages/"+buyerId.toString()+"_"+storeId.toString(),responseDto);
+		simpMessagingTemplate.convertAndSend("/topic/messages/" + chatRoom.getId(), responseDto);
 	}
 	@GetMapping("/chat/{roomId}")
 	  public ResponseEntity<ApiResponse<List<ChatMessageDto>>> getMessage(@PathVariable("roomId") Long roomId){
@@ -70,27 +71,27 @@ public class ChatController {
 	    return ResponseEntity.ok(ApiResponse.success("取得訊息成功",chatMessageDtos));
 	  }
 	@GetMapping("/chat/room")
-	public ResponseEntity<ApiResponse<ChatRoomDto>> getChatRoom(
-	    @RequestParam Long buyerId,
-	    @RequestParam Long storeId
-	) {
-	    try {
-	        User buyer = userRepository.findById(buyerId).orElseThrow();
-	        Store store = storeRepository.findById(storeId).orElseThrow();
-	        
-	        Optional<ChatRoom> chatRoomOpt = chatRoomRepository.findByBuyerAndStore(buyer, store);
-	        
-	        if (chatRoomOpt.isPresent()) {
-	        	ChatRoom chatRoom=chatRoomOpt.get();
-	        	
-	            return ResponseEntity.ok(ApiResponse.success("查詢聊天室成功",chatRoomMapper.toDto(chatRoom)));
-	        } else {
-	            return ResponseEntity.notFound().build();
-	        }
-	    } catch (Exception e) {
-	        return ResponseEntity.notFound().build();
-	    }
-	}
+		public ResponseEntity<ApiResponse<ChatRoomDto>> getChatRoom(
+		    @RequestParam Long buyerId,
+		    @RequestParam Long storeId
+		) {
+		    try {
+		        User buyer = userRepository.findById(buyerId).orElseThrow();
+		        Store store = storeRepository.findById(storeId).orElseThrow();
+		        
+		        Optional<ChatRoom> chatRoomOpt = chatRoomRepository.findByBuyerAndStore(buyer, store);
+		        
+		        if (chatRoomOpt.isPresent()) {
+		        	ChatRoom chatRoom=chatRoomOpt.get();
+		        	
+		            return ResponseEntity.ok(ApiResponse.success("查詢聊天室成功",chatRoomMapper.toDto(chatRoom)));
+		        } else {
+		            return ResponseEntity.notFound().build();
+		        }
+		    } catch (Exception e) {
+		        return ResponseEntity.notFound().build();
+		    }
+		}
 
 	
 }
