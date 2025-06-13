@@ -92,6 +92,16 @@ public class ChatController {
 		        return ResponseEntity.notFound().build();
 		    }
 		}
+		@GetMapping("/chatrooms")
+		public ResponseEntity<ApiResponse<List<ChatRoomDto>>> getChatRoomsByUser(@RequestParam Long userId){
+			try{
+				List<ChatRoomDto>chatRoomDtos=chatRoomService.getAllChatRooms(userId);
+				return ResponseEntity.ok(ApiResponse.success("查詢聊天室列表成功,",chatRoomDtos));
+			}catch (UserNotFoundException e){
+				return  ResponseEntity.badRequest().body(ApiResponse.error(400,e.getMessage()));
+			}
+        }
+
 
 	
 }

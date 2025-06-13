@@ -7,6 +7,6 @@ import com.example.demo.model.entity.ChatRoom;
 
 public interface ChatRoomService {
 	ChatRoom createChatRoom(Long buyerId,  Long storeId);
-	List<ChatRoomDto> getAllChatRooms();
+	List<ChatRoomDto> getAllChatRooms(Long userId);
 	
 }
