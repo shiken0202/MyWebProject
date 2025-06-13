@@ -47,8 +47,11 @@ private ChatRoomMapper chatRoomMapper;
 	}
 
 	@Override
-	public List<ChatRoomDto> getAllChatRooms() {
-		List<ChatRoom> chatRooms=chatRoomRepository.findAll();
+	public List<ChatRoomDto> getAllChatRooms(Long userId) {
+		if(userRepository.findById(userId).isEmpty()){
+			throw  new UserNotFoundException("找不到使用者");
+		}
+		List<ChatRoom> chatRooms=chatRoomRepository.findAllChatRoomsByUserId(userId);
 		return chatRooms.stream().map(chatRoomMapper::toDto).collect(Collectors.toList());
 	}
 
