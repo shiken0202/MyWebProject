@@ -19,7 +19,7 @@ import com.example.demo.util.HashUtil;
 import jakarta.transaction.Transactional;
 
 @Service
-public class UserServiceImpl implements UserService {
+public  class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRepository userRepository;
@@ -123,7 +123,16 @@ public class UserServiceImpl implements UserService {
 		
 		return userRepository.existsByUserName(userName);
 	}
-
+	@Override
+	public  void BlockUser(Long userId){
+		User user=userRepository.findById(userId).orElseThrow(()->new UserNotFoundException("查無此使用者"));
+		userRepository.BlockUser(user.getId());
+	}
+	@Override
+	public void unBlockUser(Long userId) {
+		User user=userRepository.findById(userId).orElseThrow(()->new UserNotFoundException("查無此使用者"));
+		userRepository.unBlockUser(user.getId());
+	}
 
 
 }

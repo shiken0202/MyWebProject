@@ -1,13 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.exception.UserException;
 import com.example.demo.model.dto.UserCert;
@@ -37,11 +34,14 @@ public class LoginRestController {
 			UserCert userCert=userCertService.getCert(username, password);
 			session.setAttribute("userCert", userCert);
 			String authcode=(String)session.getAttribute("authcode");
-			System.out.println(captchaInput);
-			System.out.println(authcode);
+
 			if(!captchaInput.equals(authcode)) {
 				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
 						.body(ApiResponse.error(400,"驗證碼輸入失敗"));
+			}
+			if(userCert.isIsbanned()==true){
+				session.invalidate();
+				return ResponseEntity.ok(ApiResponse.success("你已被封鎖", null));
 			}
 			return ResponseEntity.ok(ApiResponse.success("登入成功", null));
 		} catch (UserException e) {
@@ -90,6 +90,23 @@ public class LoginRestController {
 		return ResponseEntity.ok(ApiResponse.success(username+", 註冊成功", null));
 		
 	}
-	
+	@PutMapping("/user/block/{id}")
+	public ResponseEntity<ApiResponse<Void>>blockUser(@PathVariable Long id){
+		try{
+			userService.BlockUser(id);
+			return ResponseEntity.ok(ApiResponse.success("封鎖成功",null));
+		}catch (UserNotFoundException e) {
+			return ResponseEntity.badRequest().body(ApiResponse.error(400, e.getMessage()));
+		}
+	}
+	@PutMapping("/user/unblock/{id}")
+	public ResponseEntity<ApiResponse<Void>>unblockUser(@PathVariable Long id){
+		try{
+			userService.unBlockUser(id);
+			return ResponseEntity.ok(ApiResponse.success("解除封鎖成功",null));
+		}catch (UserNotFoundException e) {
+			return ResponseEntity.badRequest().body(ApiResponse.error(400, e.getMessage()));
+		}
+	}
 	
 }

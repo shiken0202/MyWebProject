@@ -15,5 +15,7 @@ public interface UserService {
 	public	void addUser(String userName,String userEmail,String password,String role);
 	public	void updateUser(Long userId,String userName,String userEmail,String password,String role);
 	public	void deleteUser(Long userId);
+	public  void BlockUser(Long userId);
+	public 	void unBlockUser(Long userId);
 	
 }

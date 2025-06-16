@@ -32,7 +32,7 @@ public class UserCertServiceImpl implements UserCertService{
 			if(!hashpassword.equals(user.getHashPassword())) {
 				throw new PasswordErrorException("密碼錯誤");
 			}
-			UserCert userCert=new UserCert(user.getId(),user.getUserName(),user.getEmailConfirmOK(),user.getRole().name());
+			UserCert userCert=new UserCert(user.getId(),user.getUserName(),user.getEmailConfirmOK(),user.getRole().name(),user.getIsBanned());
 			return userCert;
 
 		
