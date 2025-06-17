@@ -40,8 +40,8 @@ public class AuthCodeController {
 	}
 	
 	private String generateAuthCode() {
-//		String chars = "123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
-		String chars ="0";
+		String chars = "123456789abcdefghijkmnpqrstuvwyABCDEFGHJKLMNPQRSTUVWY";
+//		String chars ="0"; 測試用
 		StringBuffer authcode = new StringBuffer();
 		Random random = new Random();
 		for(int i=0;i<4;i++) {
@@ -63,7 +63,7 @@ public class AuthCodeController {
 		// 塗滿背景
 		g.fillRect(0, 0, 80, 30); // 全區域
 		// 設定顏色
-		g.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
+		g.setColor(Color.BLACK);
 		// 設定字型
 		g.setFont(new Font("Arial", Font.BOLD, 22)); // 字體, 風格, 大小
 		// 繪文字
