@@ -2,8 +2,11 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import com.example.demo.service.UserCertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,16 +30,19 @@ import jakarta.servlet.http.HttpSession;
 public class CartItemController {
 	@Autowired
 	private CartItemService cartItemService;
-	
+	@Autowired
+	UserCertService userCertService;
 	@PostMapping("/cartitem/create")
-	public ResponseEntity<ApiResponse<Void>> addItems(HttpSession session,ProductDto productDto,@RequestParam Integer amount){
-		UserCert userCert=(UserCert)session.getAttribute("userCert");
+	public ResponseEntity<ApiResponse<Void>> addItems(ProductDto productDto,@RequestParam Integer amount){
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		UserCert userCert=userCertService.findUserByUsername(authentication.getName());
 		cartItemService.addItem(userCert.getUserId(), productDto.getId(), amount);
 		return ResponseEntity.ok(ApiResponse.success("商品新增成功", null));
 	}
 	@GetMapping("/cartitem/allitems")
-	public ResponseEntity<ApiResponse<List<CartItemDto>>> findAllItemsByUserId(HttpSession session){
-		UserCert userCert=(UserCert) session.getAttribute("userCert");
+	public ResponseEntity<ApiResponse<List<CartItemDto>>> findAllItemsByUserId(){
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		UserCert userCert=userCertService.findUserByUsername(authentication.getName());
 		List<CartItemDto>cartItemDtos= cartItemService.findAllCartItemsByUserId(userCert.getUserId());
 		return ResponseEntity.ok(ApiResponse.success("購物車商品查詢成功", cartItemDtos));
 	}

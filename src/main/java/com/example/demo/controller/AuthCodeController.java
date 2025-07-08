@@ -7,34 +7,49 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.http.HttpRequest;
+import java.util.Base64;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
+import com.example.demo.model.dto.CaptchaDto;
+import com.example.demo.response.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import jakarta.servlet.http.HttpSession;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"},allowCredentials = "true")
 public class AuthCodeController {
 
-	@GetMapping(value="/captcha",produces = MediaType.IMAGE_JPEG_VALUE)
-	public byte[] authcode(HttpSession session) throws IOException{
+	@Autowired
+	private RedisTemplate<String, String> redisTemplate;
+
+	@GetMapping("/captcha")
+	public ResponseEntity<ApiResponse<CaptchaDto>> authcode() throws IOException{
 		String authcode=generateAuthCode();
+		String captchaId= UUID.randomUUID().toString();
+		String redisKey="captchaId:"+captchaId;
+		redisTemplate.opsForValue().set(redisKey,authcode);
 		BufferedImage AuthCodeImage =getAuthCodeImage(authcode);
 		ByteArrayOutputStream baos=new ByteArrayOutputStream();
 		try {
 			ImageIO.write(AuthCodeImage,"JPG",baos);
 			byte[]bytes=baos.toByteArray();
-			session.setAttribute("authcode", authcode);
-			return bytes;
+			String imgBase64= Base64.getEncoder().encodeToString(bytes);
+			CaptchaDto captchaDto=new CaptchaDto(captchaId,imgBase64);
+			return ResponseEntity.ok(ApiResponse.success("驗證碼生成成功",captchaDto));
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-		    throw new RuntimeException("生成驗證碼圖像失敗", e);
+		    return ResponseEntity.badRequest().body(ApiResponse.error(400,"驗證碼生成失敗："+e.getMessage()));
 		}
 		
 	}

@@ -4,12 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.model.dto.ProductImageDto;
@@ -18,6 +13,7 @@ import com.example.demo.service.ProductImageService;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "true")
+@RequestMapping("/product")
 public class ProductImageController {
 	@Autowired
 	private ProductImageService productImageService;

@@ -2,8 +2,13 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import com.example.demo.model.dto.UserCert;
+import com.example.demo.service.StoreService;
+import com.example.demo.service.UserCertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,12 +36,17 @@ public class ProductController {
     
 	@Autowired
 	private ProductService productService;
-
+	@Autowired
+	UserCertService userCertService;
+	@Autowired
+	StoreService storeService;
    
 	@PostMapping("/product/add")
-	public ResponseEntity<ApiResponse<Void>>addProduct(@RequestBody ProductDto productDto,HttpSession session){
+	public ResponseEntity<ApiResponse<Void>>addProduct(@RequestBody ProductDto productDto){
 		try {
-			StoreDto storeInfo=(StoreDto)session.getAttribute("storeInfo");
+			Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+			UserCert userCert=userCertService.findUserByUsername(authentication.getName());
+			StoreDto storeInfo=storeService.findStoreByUserId(userCert.getUserId());
 			productService.addProduct(storeInfo.getId(), productDto.getTitle(), productDto.getBrand(), productDto.getCategoryId(), productDto.getPrice(), productDto.getStock(), productDto.getDescription());
 			return ResponseEntity.ok(ApiResponse.success("商品新增成功", null));
 		}catch (NumberFormatException e) {

@@ -2,8 +2,11 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import com.example.demo.service.UserCertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,26 +27,31 @@ import jakarta.servlet.http.HttpSession;
 public class StoreController {
 	@Autowired
 	public StoreService storeService;
-	
+	@Autowired
+	UserCertService userCertService;
+
 	@PostMapping("/store/create")
 	public ResponseEntity<ApiResponse<Void>> addStore(@RequestBody StoreDto storeDto){
 		storeService.addStore(storeDto.getStoreName(), storeDto.getDescription(), storeDto.getUserId());
 		return ResponseEntity.ok(ApiResponse.success("新增商店成功", null));
 	}
 	@GetMapping("/store/info")
-	public ResponseEntity<ApiResponse<StoreDto>>getStore(HttpSession session){
-		UserCert userCert=(UserCert) session.getAttribute("userCert");
+	public ResponseEntity<ApiResponse<StoreDto>>getStore(){
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		UserCert userCert=userCertService.findUserByUsername(authentication.getName());
 		StoreDto storeDto =storeService.findStoreByUserId(userCert.getUserId());
-		session.setAttribute("storeInfo", storeDto);
+
 		if(storeDto==null) {
 			return ResponseEntity.ok(ApiResponse.success("尚無商店，請建立商店", null));
 		}
 		return ResponseEntity.ok(ApiResponse.success("查詢商店成功", storeDto));
 	}
 	@PutMapping("/store/update")
-	public ResponseEntity<ApiResponse<Void>>updateStoreDescription(@RequestBody StoreDto storeDto,HttpSession session){
-		
-		StoreDto storeInfo=(StoreDto) session.getAttribute("storeInfo");
+	public ResponseEntity<ApiResponse<Void>>updateStoreDescription(@RequestBody StoreDto storeDto){
+		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		UserCert userCert=userCertService.findUserByUsername(authentication.getName());
+
+		StoreDto storeInfo=storeService.findStoreByUserId(userCert.getUserId());
 		storeService.updateStoreDescription(storeDto.getDescription(), storeInfo.getId());
 		System.out.println(storeInfo+"這是info");
 		System.out.println(storeDto+"這是description");

@@ -5,4 +5,5 @@ import com.example.demo.model.dto.UserCert;
 
 public interface UserCertService {
 	public UserCert getCert(String username, String password)throws UserException;
+	public UserCert findUserByUsername(String username)throws UserException;
 }

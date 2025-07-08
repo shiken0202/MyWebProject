@@ -2,8 +2,11 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import com.example.demo.service.UserCertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,11 +38,12 @@ public class OrderController {
 	private StoreService storeService;
 	@Autowired
 	private OrderItemService orderItemService;
-	
+	@Autowired
+	UserCertService userCertService;
 	@PostMapping("/order/create")
-	public ResponseEntity<ApiResponse<Void>> checkout(HttpSession session,@RequestBody List<OrderDto> orderDtos){
-		
-		UserCert userCert=(UserCert)session.getAttribute("userCert");
+	public ResponseEntity<ApiResponse<Void>> checkout(@RequestBody List<OrderDto> orderDtos){
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		UserCert userCert=userCertService.findUserByUsername(authentication.getName());
 		if(userCert==null) {
 			return ResponseEntity.badRequest().body(ApiResponse.error(400, "尚未登入"));
 		}
@@ -57,8 +61,9 @@ public class OrderController {
 		return ResponseEntity.ok(ApiResponse.success("訂單建立成功", null));
 	}
 	@GetMapping("/orders/user")
-	public ResponseEntity<ApiResponse<List<OrderDto>>> getOrdersByUser(HttpSession session){
-		UserCert userCert=(UserCert)session.getAttribute("userCert");
+	public ResponseEntity<ApiResponse<List<OrderDto>>> getOrdersByUser(){
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		UserCert userCert=userCertService.findUserByUsername(authentication.getName());
 		if(userCert==null) {
 			return ResponseEntity.badRequest().body(ApiResponse.error(400, "尚未登入"));
 		}
@@ -72,8 +77,9 @@ public class OrderController {
 		
 	}
 	@GetMapping("/orders/store")
-	public ResponseEntity<ApiResponse<List<OrderDto>>> getOrdersByStore(HttpSession session){
-		UserCert userCert=(UserCert)session.getAttribute("userCert");
+	public ResponseEntity<ApiResponse<List<OrderDto>>> getOrdersByStore(){
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		UserCert userCert=userCertService.findUserByUsername(authentication.getName());
 		if(userCert==null) {
 			return ResponseEntity.badRequest().body(ApiResponse.error(400, "尚未登入"));
 		}

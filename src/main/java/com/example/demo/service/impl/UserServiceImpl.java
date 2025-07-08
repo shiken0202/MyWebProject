@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.mapper.UserMapper;
@@ -22,11 +24,17 @@ import jakarta.transaction.Transactional;
 public  class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserRepository userRepository;
-	
-	@Autowired
 	UserMapper userMapper;
-	
+	private final  UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder ;
+
+	@Autowired
+	public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
+
+	}
+
 	@Override
 	public void emailConfirmOK(String userName) {
 		if(userName==null) {
@@ -65,14 +73,15 @@ public  class UserServiceImpl implements UserService {
 	public void addUser(String userName, String userEmail, String password, String role) {
 		
 		try {
-			String salt;
-			salt = HashUtil.generateSalt();
-			String passwordHash = HashUtil.hashPassword(password, salt);
+//			String salt;
+//			salt = HashUtil.generateSalt();
+//			String passwordHash = HashUtil.hashPassword(password, salt);
+			String encodedPassword = passwordEncoder.encode(password);
 			User.Role roleEnum=User.Role.valueOf(role.toUpperCase());
 			User user = new User();
 			user.setUserName(userName);
-			user.setHashPassword(passwordHash);
-			user.setSalt(salt);
+			user.setHashPassword(encodedPassword);
+			user.setSalt("");
 			user.setEmail(userEmail);
 			user.setRole(roleEnum);
 			userRepository.save(user);

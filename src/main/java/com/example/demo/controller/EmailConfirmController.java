@@ -29,11 +29,11 @@ public class EmailConfirmController {
 	@Autowired
 	UserService userService;
 	@GetMapping(value = "/email/confirm")
-	public ResponseEntity<ApiResponse<Void>>confirm(@RequestParam String username,HttpSession session){
+	public ResponseEntity<ApiResponse<Void>>confirm(@RequestParam String username){
 	try {
 		userService.emailConfirmOK(username);
 		
-		session.invalidate();
+
 		System.out.print(username);
 		
 		return ResponseEntity.ok(ApiResponse.success("驗證成功", null));
