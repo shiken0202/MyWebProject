@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.myBatisMapper.ProductMyBatisMapper">
+    <resultMap id="productWithImagesResultMap" type="com.example.demo.model.entity.Product" >
+        <id property="id" column="id"/>
+<!--        <result property="title" column="title"/>-->
+<!--        <result property="brand" column="brand"/>-->
+<!--        <result property="stock" column="stock"/>-->
+<!--        <result property="price" column="price"/>-->
+<!--        <result property="title" column="title"/>-->
+<!--        <result property="description" column="description"/>-->
+<!--        <result property="viewCount" column="view_count"/>-->
+<!--        <result property="isActive" column="is_active"/>-->
+
+        <association property="category" javaType="com.example.demo.model.entity.Category"  >
+            <id property="id" column="c_id"/>
+            <result property="name" column="name"/>
+        </association>
+        <collection property="productImages" ofType="com.example.demo.model.entity.ProductImage" >
+            <id property="id" column="pi_id"/>
+        </collection>
+    </resultMap>
+    <select id="findByStoreIdWithImages" resultMap="productWithImagesResultMap">
+        SELECT p.*, c.id as c_id,c.name,pi.id as pi_id,pi.image_url,pi.sort_order
+        FROM products p
+        LEFT JOIN categories c ON p.category_id=c.id
+        LEFT JOIN product_images pi ON p.id = pi.product_id
+        WHERE store_id = #{storeId}
+        ORDER BY sort_order
+    </select>
+</mapper>
