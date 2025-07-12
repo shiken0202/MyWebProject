@@ -17,9 +17,10 @@ public class UserDto {
     @Pattern(regexp = "^[a-zA-Z0-9-_]{5,20}$",message = "用戶名稱需介於5-20個字母")
     private String userName;
     private String email;
+    private Boolean emailConfirmok;
     private String role; // 用 String 表示角色（如 "ADMIN"、"SELLER"、"BUYER"）
     private LocalDateTime createdAt;
-    private Boolean isBanned;
+    private Boolean isbanned;
 
     // 只放關聯 id 或簡化資訊，避免循環依賴
     private Long storeId; // 對應 Store 的 id

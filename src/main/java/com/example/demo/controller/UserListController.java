@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import com.example.demo.model.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,8 +20,8 @@ public class UserListController {
 	private UserService userService;
 	
 	@GetMapping("/userlist")
-	public ResponseEntity<ApiResponse<List<UserListDto>>> getUsers(){
-		List<UserListDto>userListDtos=userService.findAllUsers();
+	public ResponseEntity<ApiResponse<List<UserDto>>> getUsers(){
+		List<UserDto>userListDtos=userService.findAllUsers();
 		System.out.println(userListDtos);
 		return ResponseEntity.ok(ApiResponse.success("使用者列表:", userListDtos));
 	}

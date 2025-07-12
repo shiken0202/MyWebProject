@@ -8,7 +8,7 @@ import com.example.demo.model.dto.UserListDto;
 public interface UserService {
 
 	public	void emailConfirmOK(String userName);
-	public 	List<UserListDto> findAllUsers();
+	public 	List<UserDto> findAllUsers();
 	public	UserDto getUserById(Long userId);
 	public  UserDto getUserByUserName(String userName);
 	public 	boolean existsByUserName(String userName);

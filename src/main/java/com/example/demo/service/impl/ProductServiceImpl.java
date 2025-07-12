@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.demo.dao.ProductDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,6 +43,9 @@ public class ProductServiceImpl implements ProductService {
 	private ProductMapper productMapper;
 	@PersistenceContext
     private EntityManager entityManager;
+
+	@Autowired
+	private ProductDao productDao;
 	
 	@Autowired
 	private OrderItemRepository orderItemRepository;
@@ -56,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	@Override
 	public List<ProductDto> findProductsByStoreId(Long StoreId) {
-		List<Product>products= productRepository.findByStoreIdWithImages(StoreId);
+		List<Product>products= productDao.findByStoreIdWithImages(StoreId);
 		if(products==null) {
 			return null;
 		}

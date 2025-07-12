@@ -76,6 +76,9 @@ private static final Logger logger = LoggerFactory.getLogger(LoginRestController
 		logger.info("!!!!!!!!!! LOGIN API HAS BEEN CALLED !!!!!!!!!!");
 		String redisKey="captchaId:"+captchaId;
 		String correctCaptcha=redisTemplate.opsForValue().get(redisKey);
+		if (correctCaptcha != null) {
+			redisTemplate.delete(redisKey);
+		}
 		if(correctCaptcha==null|| !correctCaptcha.equals(captchaInput)){
 			return  ResponseEntity.badRequest().body(ApiResponse.error(400,"驗證碼輸入錯誤"));
 		}

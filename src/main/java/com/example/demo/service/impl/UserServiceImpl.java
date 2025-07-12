@@ -5,6 +5,8 @@ package com.example.demo.service.impl;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import com.example.demo.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,6 +27,8 @@ public  class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserMapper userMapper;
+	@Autowired
+	UserDao userDao;
 	private final  UserRepository userRepository;
 	private final PasswordEncoder passwordEncoder ;
 
@@ -45,11 +49,11 @@ public  class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserListDto> findAllUsers() {
-	
-		return userRepository.findAllUsersInfo();
-//		return users.stream()
-//					.map(u->userMapper.toDto(u)).collect(Collectors.toList());
+	public List<UserDto> findAllUsers() {
+	List<User> users=userDao.findAllUsers();
+
+		return users.stream().map(userMapper::toDto).collect(Collectors.toList());
+
 	}
 
 	@Override

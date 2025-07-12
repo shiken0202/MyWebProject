@@ -10,6 +10,7 @@ import java.net.http.HttpRequest;
 import java.util.Base64;
 import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 
@@ -37,7 +38,7 @@ public class AuthCodeController {
 		String authcode=generateAuthCode();
 		String captchaId= UUID.randomUUID().toString();
 		String redisKey="captchaId:"+captchaId;
-		redisTemplate.opsForValue().set(redisKey,authcode);
+		redisTemplate.opsForValue().set(redisKey,authcode,2, TimeUnit.MINUTES);
 		BufferedImage AuthCodeImage =getAuthCodeImage(authcode);
 		ByteArrayOutputStream baos=new ByteArrayOutputStream();
 		try {
