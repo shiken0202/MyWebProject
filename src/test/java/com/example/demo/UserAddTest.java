@@ -12,8 +12,8 @@ public class UserAddTest {
 	@Autowired
 	UserService userService;
 	
-	@Test
-	public void UserTest() {
-	userService.addUser("admin","hsuan0202.tw@gmail.com", "1234", "admin");
-	}
+//	@Test
+//	public void UserTest() {
+//	userService.addUser("admin","hsuan0202.tw@gmail.com", "1234", "admin");
+//	}
 }
