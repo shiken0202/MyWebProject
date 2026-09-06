@@ -3,6 +3,13 @@ package com.example.demo.controller;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.dto.LoginResponse;
 import com.example.demo.util.JwtUtils;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +34,7 @@ import jakarta.servlet.http.HttpSession;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "true")
+@Tag(name = "使用者認證 (Authentication)", description = "提供使用者登入、註冊與資訊查詢等相關 API")
 public class LoginRestController {
 	
 	@Autowired
@@ -68,6 +76,7 @@ public class LoginRestController {
 //	}
 private static final Logger logger = LoggerFactory.getLogger(LoginRestController.class);
 	@PostMapping("/login")
+	@Operation(summary = "使用者登入",description = "供帳號、密碼、驗證碼比對來進行登入，成功後回傳 Token。")
 	ResponseEntity<ApiResponse<LoginResponse>> login(
 			@RequestParam String username,
 			@RequestParam String password,
@@ -117,12 +126,14 @@ private static final Logger logger = LoggerFactory.getLogger(LoginRestController
 		return ResponseEntity.ok(ApiResponse.success("登出成功", null));
 	}
 	@GetMapping("/check-login")
+	@Operation(summary = "確認使用者登入狀況", description = "需要有效的 Token 才能訪問。")
 	public ResponseEntity<ApiResponse<Boolean>> checkLogin(HttpSession session) {
 //	    boolean loggedIn = session.getAttribute("userCert") != null;
 	    return ResponseEntity.ok(ApiResponse.success("檢查登入", true));
 	}
 	
 	@GetMapping("/userinfo")
+	@Operation(summary = "取得使用者資訊", description = "需要有效的 Token 才能訪問。")
 	public ResponseEntity<ApiResponse<UserCert>>userInfo(HttpSession session){
 		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
 		System.out.println(authentication+"=======================");
@@ -163,7 +174,40 @@ private static final Logger logger = LoggerFactory.getLogger(LoginRestController
 		}
 	}
 	@PutMapping("/user/unblock/{id}")
-	public ResponseEntity<ApiResponse<Void>>unblockUser(@PathVariable Long id){
+	@Operation(summary = "封鎖指定使用者")
+	@ApiResponses(
+			value = {
+					@io.swagger.v3.oas.annotations.responses.ApiResponse(
+							responseCode = "200",
+							description = "封鎖成功",
+							content = @Content(mediaType = "application/json",
+											schema = @Schema(implementation = com.example.demo.response.ApiResponse.class
+													   ),
+											examples = @ExampleObject(
+													name = "successExample", // 給這個範例取一個名字
+													summary = "成功回應範例", // 範例的簡短描述
+													value = "{ \"status\": 200, \"message\": \"操作成功\", \"data\": null }" // 實際的 JSON 範例字串
+											)
+
+							)
+					),
+					@io.swagger.v3.oas.annotations.responses.ApiResponse(
+							responseCode = "400",
+							description = "封鎖失敗,使用者不存在",
+							content = @Content(mediaType = "application/json",
+									schema = @Schema(implementation = com.example.demo.response.ApiResponse.class
+													   ),
+									examples = @ExampleObject(
+										name = "successExample", // 給這個範例取一個名字
+										summary = "失敗回應範例", // 範例的簡短描述
+										value = "{ \"status\": 400, \"message\": \"操作失敗\", \"data\": null }" // 實際的 JSON 範例字串
+										)
+							)
+					)
+			}
+	)
+
+	public ResponseEntity<ApiResponse<Void>>unblockUser(@Parameter(description = "封鎖的使用者ID",example = "6") @PathVariable Long id){
 		try{
 			userService.unBlockUser(id);
 			return ResponseEntity.ok(ApiResponse.success("解除封鎖成功",null));

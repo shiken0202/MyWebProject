@@ -41,6 +41,7 @@ public class SecurityConfig {
                         "/chat-websocket/**","/chat/**",
                         "/uploads/**","/store/**","/twd-jpy",
                         "/captcha",
+                        "/swagger-ui/**","/v3/api-docs/**","/swagger-ui.html",
                         "/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
         )
