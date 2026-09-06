@@ -100,19 +100,59 @@ private static final Logger logger = LoggerFactory.getLogger(LoginRestController
 				return ResponseEntity.status(HttpStatus.FORBIDDEN)
 						.body(ApiResponse.error(403, "此帳號已被封鎖，禁止登入"));
 			}
-			final String jwt=jwtUtils.generationToken(userCert);
-			LoginResponse loginResponse=new LoginResponse();
-			loginResponse.setToken(jwt);
+			final String accessToken = jwtUtils.generateAccessToken(userCert);
+			final String refreshToken = jwtUtils.generateRefreshToken(userCert);
+			
+			LoginResponse loginResponse = new LoginResponse();
+			loginResponse.setAccessToken(accessToken);
+			loginResponse.setRefreshToken(refreshToken);
+			
 			return ResponseEntity.ok(ApiResponse.success("登入成功", loginResponse));
 		} catch (BadCredentialsException e){
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error(401,"登入失敗，帳號密碼錯誤"));
-		}
-		catch (UserException e) {
-			return ResponseEntity
-					.status(HttpStatus.UNAUTHORIZED)
-					.body(ApiResponse.error(401, "登入失敗:"+e.getMessage()));
+		} catch (UserException e) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error(401, "登入失敗:"+e.getMessage()));
 		}
 	}
+
+	@PostMapping("/refresh")
+	@Operation(summary = "換發 Access Token", description = "當短 Token 過期時，利用長 Token (Refresh Token) 來換發新的短 Token。")
+	ResponseEntity<ApiResponse<LoginResponse>> refreshToken(@RequestParam String refreshToken) {
+		logger.info("!!!!!!!!!! REFRESH API HAS BEEN CALLED !!!!!!!!!!");
+		
+		// 1. 驗證 Refresh Token 是否合法且未過期
+		if (!jwtUtils.validateRefreshToken(refreshToken)) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+					.body(ApiResponse.error(401, "Refresh Token 無效或已過期，請重新登入"));
+		}
+
+		try {
+			// 2. 從 Token 中解析出 username
+			String username = jwtUtils.extractUsername(refreshToken);
+			
+			// 3. 重新從資料庫獲取使用者最新狀態
+			UserCert userCert = userCertService.findUserByUsername(username);
+			if(userCert.isIsbanned()){
+				return ResponseEntity.status(HttpStatus.FORBIDDEN)
+						.body(ApiResponse.error(403, "此帳號已被封鎖，禁止換發憑證"));
+			}
+
+			// 4. 核發一張全新的 Access Token (為了安全起見，通常我們也會連 Refresh Token 一起換新發布，這稱為 Refresh Token Rotation，但先以換發 Access Token 為主即可)
+			String newAccessToken = jwtUtils.generateAccessToken(userCert);
+			String newRefreshToken = jwtUtils.generateRefreshToken(userCert); // 視需求可給舊的，這裡選擇給新的刷新壽命
+
+			LoginResponse loginResponse = new LoginResponse();
+			loginResponse.setAccessToken(newAccessToken);
+			loginResponse.setRefreshToken(newRefreshToken);
+
+			return ResponseEntity.ok(ApiResponse.success("換發成功", loginResponse));
+
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+					.body(ApiResponse.error(401, "換發憑證失敗: " + e.getMessage()));
+		}
+	}
+
 	@GetMapping("/logout")
 	public ResponseEntity<ApiResponse<Void>>Logout(){
 //		if(session.getAttribute("userCert")==null) {

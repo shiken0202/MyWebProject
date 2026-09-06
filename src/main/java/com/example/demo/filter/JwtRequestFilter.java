@@ -36,6 +36,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 username=jwtUtils.extractUsername(jwt);
             }catch (ExpiredJwtException e){
                 logger.warn("JWT Token過期:"+e.getMessage());
+                // 當發現 Token 過期時，直接在此處回傳 401，避免請求繼續往下走變成 403
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.setContentType("application/json;charset=UTF-8");
+                response.getWriter().write("{\"status\":\"error\", \"code\":401, \"message\":\"Access Token 已過期\"}");
+                return; // 終止 Filter 鏈
             } catch (Exception e) {
                 logger.error("JWT Token解析錯誤"+e.getMessage());
             }

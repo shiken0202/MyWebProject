@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Schema(description = "使用者JWTToken")
 public class LoginResponse {
-    private String token;
+    private String accessToken;
+    private String refreshToken;
     private String tokenType="Bearer";
 }

@@ -40,7 +40,7 @@ public class SecurityConfig {
                         "/category/**","/categories/**",
                         "/chat-websocket/**","/chat/**",
                         "/uploads/**","/store/**","/twd-jpy",
-                        "/captcha",
+                        "/captcha", "/refresh", "/error",
                         "/swagger-ui/**","/v3/api-docs/**","/swagger-ui.html",
                         "/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
