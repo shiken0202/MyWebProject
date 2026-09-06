@@ -38,6 +38,8 @@ public class AuthCodeController {
 		String authcode=generateAuthCode();
 		String captchaId= UUID.randomUUID().toString();
 		String redisKey="captchaId:"+captchaId;
+		// 為了方便 Insomnia 測試，直接印出驗證碼在 Console
+		System.out.println("====== [測試用] 剛產生的驗證碼是：" + authcode + " (Captcha ID: " + captchaId + ") ======");
 		redisTemplate.opsForValue().set(redisKey,authcode,2, TimeUnit.MINUTES);
 		BufferedImage AuthCodeImage =getAuthCodeImage(authcode);
 		ByteArrayOutputStream baos=new ByteArrayOutputStream();
